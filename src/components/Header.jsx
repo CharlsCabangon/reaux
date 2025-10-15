@@ -10,7 +10,7 @@ export default function Header() {
       <AnimatePresence>
         {inView ? (
           <motion.div
-            className="fixed left-0 top-0 z-50 w-full border-b border-white bg-off-white/80 p-5 shadow-md backdrop-blur-sm transition-all"
+            className="fixed left-0 top-0 z-50 w-full border-b border-white bg-off-white/50 px-8 py-4 shadow-md backdrop-blur-sm transition-all"
             initial={{ y: -100, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: -100, opacity: 0 }}
@@ -28,7 +28,7 @@ export default function Header() {
                   </svg>
                   <p>Store</p>
                 </div>
-                <div className="mb-3 font-pinyon text-8xl">Reaux</div>
+                <div className="mb-2 font-pinyon text-7xl">Reaux</div>
                 <div className="flex gap-5">
                   <svg
                     className="h-8 w-8"
@@ -69,7 +69,7 @@ export default function Header() {
           >
             <div className="flex justify-between">
               <div className="font-pinyon text-3xl">Reaux</div>
-              <ul className="flex gap-6 text-sm">
+              <ul className="flex items-center gap-6 text-sm">
                 <li>Home</li>
                 <li>Products</li>
                 <li>About us</li>

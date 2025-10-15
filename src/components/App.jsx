@@ -1,7 +1,23 @@
+import Header from './Header';
+import Hero from './Hero';
+import PressMarquee from './PressMarquee';
+import DecorCard from './DecorCard';
+
+import { getDecor } from '@/data/assetData';
+
 export default function App() {
   return (
-    <div className="bg-blue-500 min-h-screen flex items-center justify-center">
-      <h1 className="text-white text-6xl">Hello, world!</h1>
+    <div>
+      <Header />
+      <Hero />
+      <PressMarquee />
+      <div>
+        <DecorCard
+          img={getDecor('rendered-perfectly')}
+          title="Static to Dynamic"
+          link="See more"
+        />
+      </div>
     </div>
   );
 }
