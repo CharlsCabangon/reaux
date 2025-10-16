@@ -18,6 +18,4 @@ const mapImage = (item) => ({
   },
 });
 
-export const jewelryData = jewelries.map((item) =>
-  Object.freeze(mapImage(item))
-);
+export const jewelryData = jewelries.map((item) => Object.freeze(mapImage(item)));
