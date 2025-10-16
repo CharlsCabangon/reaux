@@ -1,12 +1,28 @@
-export default function DecorCard({ img, title, link }) {
+import Tilt from 'react-parallax-tilt';
 
+export default function DecorCard({ img, link, isGlare }) {
   return (
-    <div className="w-[25rem] h-[35rem] flex flex-col align-center justify-center text-center">
-      <div className="bg-gray w-full h-full relative overflow-hidden rounded-xl">
-        <img src={img} alt="" className="absolute inset-0 h-full w-full object-cover rounded-xl"/>
-      </div>
-      <h3 className="text-3xl font-sourceSerif">{title}</h3>
-      <a href="" className="underline">{link}</a>
+    <div className="align-center flex w-[24rem] flex-col justify-center text-center">
+      <Tilt
+        tiltEnable={false}
+        glareEnable={isGlare}
+        glarePosition="all"
+        glareMaxOpacity={0.3}
+        glareBorderRadius="0.75rem"
+      >
+        <div className="relative h-[33rem] cursor-pointer overflow-hidden rounded-xl bg-gray shadow-md">
+          <img
+            src={img.image}
+            alt={img.alt}
+            className="absolute inset-0 h-full w-full rounded-xl object-cover"
+          />
+        </div>
+      </Tilt>
+
+      <h3 className="mb-1 mt-3 font-sourceSerif text-3xl">{img.title}</h3>
+      <a href="" className="font-roboto underline">
+        {link}
+      </a>
     </div>
-  )
+  );
 }

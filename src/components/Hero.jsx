@@ -58,16 +58,16 @@ export default function Hero() {
       <div className="absolute left-28 top-0 z-10 flex h-full flex-col items-start justify-center text-black">
         <Heading
           heading={
-            <p className="leading-[0]">
+            <h1 className="leading-[0]">
               <span>A framework</span>
               <br />
               <span>for fine design</span>
-            </p>
+            </h1>
           }
         />
         <p className="mt-10 w-1/2">
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Autem,
-          reiciendis voluptatem facilis eveniet sapiente commodi!
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Autem, reiciendis voluptatem
+          facilis eveniet sapiente commodi!
         </p>
         <div className="mt-5 flex gap-5">
           <PrimaryBtn name="Shop now" />
@@ -84,12 +84,8 @@ export default function Hero() {
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.6, ease: 'easeInOut' }}
           >
-            <p className="font-sourceSerif text-xl font-semibold">
-              {hero[heroIndex]?.title}
-            </p>
-            <p className="mt-3 font-roboto text-sm">
-              {hero[heroIndex]?.details}
-            </p>
+            <p className="font-sourceSerif text-xl font-semibold">{hero[heroIndex]?.title}</p>
+            <p className="mt-3 text-sm">{hero[heroIndex]?.details}</p>
           </motion.div>
         </AnimatePresence>
       </div>

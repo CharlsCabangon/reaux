@@ -1,3 +1,20 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-off-white font-roboto text-black;
+  }
+  p {
+    @apply font-roboto font-light leading-relaxed;
+  }
+}
+
+.flickity-prev-next-button {
+  @apply bg-white text-black opacity-60 ring-0 transition-opacity duration-200 !important; /* Tailwind classes */
+}
+
+.flickity-prev-next-button:hover {
+  @apply opacity-100 !important;
+}
