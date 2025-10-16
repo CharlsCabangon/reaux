@@ -2,7 +2,21 @@
 module.exports = {
   content: ['./index.html', './src/**/*.{js,jsx,ts,tsx}'],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        white: '#ffffff',
+        'off-white': '#f3f3f3',
+        'off-white-muted': '#d7d8da',
+        gray: '#afb2b7',
+        black: '#262526',
+        'black-muted': '#7f8084',
+      },
+      fontFamily: {
+        pinyon: ['"Pinyon Script"', 'cursive'],
+        sourceSerif: ['"Source Serif 4"', 'serif'],
+        roboto: ['Roboto', 'sans-serif'],
+      },
+    },
   },
   plugins: [],
 };
