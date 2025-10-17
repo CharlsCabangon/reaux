@@ -13,17 +13,20 @@
     "update:deps": "npx npm-check-updates -u && npm install"
   },
   "dependencies": {
+    "@vercel/analytics": "^1.5.0",
     "@vercel/blob": "^2.0.0",
     "flickity": "^3.0.0",
     "flickity-fade": "^2.0.0",
     "framer-motion": "^12.23.23",
+    "prop-types": "^15.8.1",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
     "react-fast-marquee": "^1.6.5",
     "react-flickity-component": "^5.0.0",
     "react-intersection-observer": "^9.16.0",
     "react-lazy-load-image-component": "^1.6.3",
-    "react-parallax-tilt": "^1.7.252"
+    "react-parallax-tilt": "^1.7.252",
+    "react-router-dom": "^7.9.4"
   },
   "devDependencies": {
     "@eslint/js": "^9.35.0",

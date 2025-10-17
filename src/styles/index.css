@@ -6,8 +6,19 @@
   body {
     @apply bg-off-white font-roboto text-black;
   }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-sourceSerif;
+  }
   p {
     @apply font-roboto font-light leading-relaxed;
+  }
+  a {
+    @apply cursor-pointer font-roboto text-black-muted underline;
   }
 }
 
