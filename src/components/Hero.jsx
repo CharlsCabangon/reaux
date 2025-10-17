@@ -46,6 +46,7 @@ export default function Hero() {
           <div key={item.id} className="relative h-screen w-full">
             <LazyLoadImage
               src={item.images[0]}
+              //src='public/assets/hero-swarovski-dulcis-collection.png'
               alt={item.alt}
               effect="blur"
               className="h-full w-full object-cover"
@@ -55,14 +56,14 @@ export default function Hero() {
         ))}
       </Flickity>
 
-      <div className="absolute left-28 top-0 z-10 flex h-full flex-col items-start justify-center text-black">
+      <div className="absolute left-32 top-10 z-10 flex h-full flex-col items-start justify-center text-black">
         <Heading
           heading={
-            <h1 className="leading-[0]">
+            <p className="font-sourceSerif font-normal leading-[0]">
               <span>A framework</span>
               <br />
               <span>for fine design</span>
-            </h1>
+            </p>
           }
         />
         <p className="mt-10 w-1/2">
@@ -75,7 +76,7 @@ export default function Hero() {
         </div>
       </div>
 
-      <div className="absolute right-28 top-56 z-10 flex h-full w-1/5 select-none flex-col justify-start text-right text-black">
+      <div className="absolute right-32 top-56 z-10 flex h-full w-1/5 select-none flex-col justify-start text-right text-black">
         <AnimatePresence mode="wait">
           <motion.div
             key={heroIndex}

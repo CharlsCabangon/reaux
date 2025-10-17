@@ -57,9 +57,15 @@ const asset = [
     alt: 'Swarovski The Galaxy Collection',
   },
   {
-    id: 'diamonds-are-forever',
+    id: 'banner-diamonds-are-forever',
     title: 'Diamonds are forever',
     image: getAssetUrl(SUBFOLDERS.banner, 'banner-diamonds-are-forever', EXTENSIONS.image),
+    alt: 'Ariana Grande Swarovski Holiday 2024 Ad Campaign',
+  },
+  {
+    id: 'banner-rendered-perfectly',
+    title: 'Rendered perfectly',
+    image: getAssetUrl(SUBFOLDERS.banner, 'banner-rendered-perfectly', EXTENSIONS.image),
     alt: 'Ariana Grande Swarovski Holiday 2024 Ad Campaign',
   },
 ];
