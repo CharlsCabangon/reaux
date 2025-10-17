@@ -1,0 +1,32 @@
+import Hero from '@/components/Hero';
+import PressMarquee from '@/components/PressMarquee';
+import Feature from '@/components/Feature';
+import DecorCard from '@/components/DecorCard';
+import Banner from '@/components/Banner';
+
+import { getAsset } from '@/data/assetData';
+
+export default function HomePage() {
+  return (
+    <>
+      <Hero />
+      <PressMarquee />
+      <Feature img={getAsset('rendered-perfectly')} />
+      <hr className="mx-auto my-20 w-[90%] border-t-2 border-black" />
+      <section className="flex w-full flex-col items-center gap-20 bg-light-gray py-20">
+        <h2 className="text-5xl">Shop the collection</h2>
+        <div className="flex justify-center gap-20">
+          <DecorCard img={getAsset('infinite-bloom')} />
+          <DecorCard img={getAsset('static-to-dynamic')} />
+          <DecorCard img={getAsset('reaux-vision')} />
+        </div>
+      </section>
+      <Banner img={getAsset('banner-diamonds-are-forever')} imgClassName="object-[0_35%]" />
+      <section className="flex w-full justify-center gap-20 py-20">
+        <DecorCard img={getAsset('ephemeral')} isGlare={true} />
+        <DecorCard img={getAsset('infinite')} isGlare={true} />
+        <DecorCard img={getAsset('cascade')} isGlare={true} />
+      </section>
+    </>
+  );
+}
