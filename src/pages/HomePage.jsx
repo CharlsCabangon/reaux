@@ -12,7 +12,7 @@ export default function HomePage() {
       <Hero />
       <PressMarquee />
       <Feature img={getAsset('rendered-perfectly')} />
-      <hr className="mx-auto my-20 w-[90%] border-t-2 border-black" />
+      <hr />
       <section className="flex w-full flex-col items-center gap-20 bg-light-gray py-20">
         <h2 className="text-5xl">Shop the collection</h2>
         <div className="flex justify-center gap-20">
