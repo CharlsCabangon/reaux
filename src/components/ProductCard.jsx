@@ -16,12 +16,12 @@ export default function ProductCard({ item }) {
 
   return (
     <div
-      className="group relative w-80 cursor-pointer rounded-md bg-white shadow-sm transition-transform duration-300"
+      className="group relative w-80 cursor-pointer rounded-md border border-white bg-white shadow-sm transition-transform duration-300"
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
       <div
-        className={`relative mb-7 w-full overflow-hidden rounded-t-md bg-white ${isHover ? 'scale-100' : 'scale-75'}`}
+        className={`relative mb-6 w-full overflow-hidden rounded-t-md bg-white ${isHover ? 'scale-100' : 'scale-75'}`}
       >
         <img
           src={isHover ? item.images.worn : item.images.main}
