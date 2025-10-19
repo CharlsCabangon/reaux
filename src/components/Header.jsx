@@ -1,5 +1,3 @@
-import { Link, NavLink } from 'react-router-dom';
-
 import { useInView } from 'react-intersection-observer';
 import { motion, AnimatePresence } from 'framer-motion';
 

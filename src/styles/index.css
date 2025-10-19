@@ -15,18 +15,18 @@
     @apply font-sourceSerif;
   }
   p {
-    @apply font-roboto font-light leading-relaxed;
+    @apply font-roboto font-light leading-normal tracking-normal;
   }
   a {
     @apply cursor-pointer font-roboto text-black-muted underline;
   }
   hr {
-    @apply mx-auto my-20 w-[90%] border-t-2 border-black/85;
+    @apply mx-auto my-20 w-[90%] border-t-2 border-black/75;
   }
 }
 
 .flickity-prev-next-button {
-  @apply bg-white text-black opacity-60 ring-0 transition-opacity duration-200 !important; /* Tailwind classes */
+  @apply bg-white text-black opacity-60 ring-0 transition-opacity duration-200 !important;
 }
 
 .flickity-prev-next-button:hover {

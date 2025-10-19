@@ -86,7 +86,7 @@ export default function Hero() {
             transition={{ duration: 0.6, ease: 'easeInOut' }}
           >
             <p className="font-sourceSerif text-xl font-semibold">{hero[heroIndex]?.title}</p>
-            <p className="mt-3 text-sm">{hero[heroIndex]?.details}</p>
+            <p className="mt-3 text-sm leading-relaxed">{hero[heroIndex]?.details}</p>
           </motion.div>
         </AnimatePresence>
       </div>
