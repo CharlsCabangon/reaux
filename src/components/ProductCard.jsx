@@ -1,10 +1,9 @@
 import { useState } from 'react';
-import PropTypes, { func } from 'prop-types';
-
-import { truncateText } from '@/utils/truncateText';
+import { useNavigate } from 'react-router-dom';
 
 export default function ProductCard({ item }) {
   const [isHover, setHover] = useState(false);
+  const navigate = useNavigate();
 
   const handleMouseEnter = () => {
     setHover(true);
@@ -14,11 +13,16 @@ export default function ProductCard({ item }) {
     setHover(false);
   };
 
+  const handleProductSelect = () => {
+    navigate(`/product/${item.id}`);
+  };
+
   return (
     <div
-      className="group relative w-80 cursor-pointer rounded-md border border-white bg-white shadow-sm transition-transform duration-300"
+      className="group relative w-80 cursor-pointer rounded-md border border-white bg-white shadow-md transition-transform duration-300"
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
+      onClick={handleProductSelect}
     >
       <div
         className={`relative mb-6 w-full overflow-hidden rounded-t-md bg-white ${isHover ? 'scale-100' : 'scale-75'}`}
