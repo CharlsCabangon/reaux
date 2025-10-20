@@ -1,32 +1,19 @@
 import { NavLink } from 'react-router-dom';
-import { motion } from 'framer-motion';
 
-import { useCart } from '@/context/useCart';
+import { motion, AnimatePresence } from 'framer-motion';
+import ButtonCart from '../controls/ButtonCart';
+import SearchIcon from '@/assets/icons/SearchIcon';
 
-import { CartBtn } from './Buttons';
-import SearchIcon from '@/icons/SearchIcon';
-import LocationIcon from '@/icons/LocationIcon';
-
-export default function NavBar() {
+export default function NavBarSticky() {
   return (
     <motion.div
-      className="fixed left-0 top-0 z-50 w-full border-b border-white bg-off-white/65 px-10 pb-4 pt-6 shadow-md backdrop-blur-sm transition-all"
+      className="fixed left-0 top-0 z-50 w-full border-b border-white bg-off-white/65 px-10 pb-4 pt-6 shadow-md backdrop-blur-sm transition-all duration-500"
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       exit={{ y: -100, opacity: 0 }}
     >
-      <div>
-        <div className="flex justify-between">
-          <div className="flex gap-5">
-            <LocationIcon />
-            <p className="font-sourceSerif font-normal">Store</p>
-          </div>
-          <div className="mb-2 font-pinyon text-7xl">Reaux</div>
-          <div className="flex gap-5">
-            <SearchIcon />
-            <CartBtn />
-          </div>
-        </div>
+      <div className="flex justify-between">
+        <div className="font-pinyon text-3xl">Reaux</div>
         <nav>
           <ul className="flex justify-center gap-8">
             <li>
@@ -61,6 +48,10 @@ export default function NavBar() {
             </li>
           </ul>
         </nav>
+        <div className="flex gap-5">
+          <SearchIcon />
+          <ButtonCart />
+        </div>
       </div>
     </motion.div>
   );

@@ -1,7 +1,8 @@
 import { useParams, useNavigate } from 'react-router-dom';
 
-import ProductDetail from '../components/ProductDetail';
-import { PrimaryBtn } from '@/components/Buttons';
+import ProductDetail from '../components/product/ProductDetail';
+import FallbackPage from './FallbackPage';
+import { PrimaryBtn } from '@/components/controls/Button';
 import { jewelryData } from '../data/productData';
 
 export default function ProductPage() {
@@ -12,20 +13,16 @@ export default function ProductPage() {
 
   if (!product) {
     return (
-      <>
-        <main className="min-h-screen p-8">
-          <div className="mx-auto max-w-2xl text-center">
-            <p className="mb-4">Product not found.</p>
-            <PrimaryBtn name="Back" onClick={() => navigate(-1)} />
-          </div>
-        </main>
-      </>
+      <FallbackPage>
+        <h3 className="mb-4">This piece is unavailable.</h3>
+        <PrimaryBtn name="Back" onClick={() => navigate(-1)} />
+      </FallbackPage>
     );
   }
 
   return (
     <>
-      <main className="min-h-screen md:p-12">
+      <main className="mt-32 min-h-screen md:p-12">
         <ProductDetail product={product} />
       </main>
     </>

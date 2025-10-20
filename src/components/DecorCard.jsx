@@ -21,7 +21,7 @@ export default function DecorCard({ img, link = 'See more', isGlare = false }) {
         </div>
       </Tilt>
 
-      <h3 className="mb-1 mt-5 font-sourceSerif text-3xl">{img.title}</h3>
+      <h4 className="mb-1 mt-5">{img.title}</h4>
       <a>{link}</a>
     </div>
   );

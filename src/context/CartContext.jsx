@@ -24,8 +24,20 @@ export function CartProvider({ children }) {
     });
   };
 
-  const removeFromCart = (id) => {
+  const updateQuantity = (id, quantity) => {
+    setCartItems((prev) => {
+      if (quantity <= 0) return prev.filter((ci) => ci.id !== id);
+      return prev.map((ci) => (ci.id === id ? { ...ci, quantity } : ci));
+    });
+  };
+
+  const removeCartItem = (id) => {
     setCartItems((prev) => prev.filter((ci) => ci.id !== id));
+  };
+
+  const removeCartItems = (ids = []) => {
+    if (!ids.length) return;
+    setCartItems((prev) => prev.filter((ci) => !ids.includes(ci.id)));
   };
 
   const clearCart = () => setCartItems([]);
@@ -36,7 +48,15 @@ export function CartProvider({ children }) {
   );
 
   const value = useMemo(
-    () => ({ cartItems, addToCart, removeFromCart, clearCart, totalItems }),
+    () => ({
+      cartItems,
+      addToCart,
+      updateQuantity,
+      removeCartItem,
+      removeCartItems,
+      clearCart,
+      totalItems,
+    }),
     [cartItems]
   );
 

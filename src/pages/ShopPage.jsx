@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import Banner from '@/components/Banner';
-import Header from '@/components/Header';
-import ProductCard from '@/components/ProductCard';
+import Header from '@/components/header/Header';
+import ProductCard from '@/components/product/ProductCard';
 
 import { getAsset } from '@/data/assetData';
 import { jewelryData } from '@/data/productData';

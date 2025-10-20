@@ -1,5 +1,5 @@
 import Hero from '@/components/Hero';
-import PressMarquee from '@/components/PressMarquee';
+import PressMarquee from '@/components/Marquee';
 import Feature from '@/components/Feature';
 import DecorCard from '@/components/DecorCard';
 import Banner from '@/components/Banner';
@@ -14,7 +14,7 @@ export default function HomePage() {
       <Feature img={getAsset('rendered-perfectly')} />
       <hr />
       <section className="flex w-full flex-col items-center gap-20 bg-light-gray py-20">
-        <h2 className="text-5xl">Shop the collection</h2>
+        <h2>Shop the collection</h2>
         <div className="flex justify-center gap-20">
           <DecorCard img={getAsset('infinite-bloom')} />
           <DecorCard img={getAsset('static-to-dynamic')} />

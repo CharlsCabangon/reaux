@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import Heading from './Heading';
 
 export default function Feature({ img, isLeft = true, children = null }) {
-  console.log('isLeft:', isLeft);
   return (
     <section
       className={`my-10 flex h-screen w-full items-center ${

@@ -8,7 +8,7 @@ import 'react-lazy-load-image-component/src/effects/blur.css';
 import { motion, AnimatePresence } from 'framer-motion';
 
 import Heading from './Heading';
-import { PrimaryBtn, SecondaryBtn } from './Buttons';
+import { PrimaryBtn, SecondaryBtn } from './controls/Button';
 
 import { hero } from '@/data/heroData';
 
@@ -59,11 +59,11 @@ export default function Hero() {
       <div className="absolute left-32 top-10 z-10 flex h-full flex-col items-start justify-center text-black">
         <Heading
           heading={
-            <p className="font-sourceSerif font-normal leading-[0]">
+            <span className="leading-[0]">
               <span>A framework</span>
               <br />
               <span>for fine design</span>
-            </p>
+            </span>
           }
         />
         <p className="mt-10 w-1/2">
