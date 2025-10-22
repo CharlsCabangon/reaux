@@ -32,9 +32,9 @@ export default function ProductDetail({ product }) {
             </div>
           </div>
           <div className="flex flex-col gap-2 rounded-lg bg-white px-10 py-8 shadow-md">
-            <h3 className="text-sm font-semibold">Description</h3>
+            <p className="font-sourceSerif text-sm font-semibold">Description</p>
             <p className="mb-2 text-sm tracking-wide text-black">{product.description}</p>
-            <h3 className="text-sm font-semibold">Care instructions</h3>
+            <p className="font-sourceSerif text-sm font-semibold">Care instructions</p>
             {product.careInstructions.map((instruction, idx) => {
               return (
                 <li key={idx} className="ml-5 text-sm font-light">
