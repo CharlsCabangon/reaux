@@ -19,7 +19,7 @@ export default function QuantitySelector({ value = 1, onChange }) {
         <button
           aria-label="Decrease quantity"
           onClick={decrement}
-          className="rounded-l-full border-r-2 px-1.5 py-0.5 text-xs text-black transition transition-all duration-500 ease-out hover:bg-off-white sm:px-2 sm:text-xs"
+          className="rounded-l-full border-r-2 px-1.5 py-0.5 text-xs text-black transition transition-all duration-500 ease-out hover:bg-off-white-muted/50 sm:px-2 sm:text-xs"
         >
           −
         </button>
@@ -35,7 +35,7 @@ export default function QuantitySelector({ value = 1, onChange }) {
         <button
           aria-label="Increase quantity"
           onClick={increment}
-          className="rounded-r-full border-l-2 px-1.5 py-0.5 text-xs text-black transition transition-all duration-500 ease-out hover:bg-off-white sm:px-2 sm:text-xs"
+          className="rounded-r-full border-l-2 px-1.5 py-0.5 text-xs text-black transition transition-all duration-500 ease-out hover:bg-off-white-muted/50 sm:px-2 sm:text-xs"
         >
           +
         </button>

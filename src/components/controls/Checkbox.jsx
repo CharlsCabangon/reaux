@@ -11,7 +11,7 @@ export default function Checkbox({ checked, onChange }) {
 
       {/* styled visual checkbox (sibling of the peer) */}
       <div
-        className="flex h-6 w-6 items-center justify-center rounded-full border-2 border-black transition-colors peer-checked:bg-black peer-checked:[&>svg]:opacity-100"
+        className="flex h-6 w-6 items-center justify-center rounded-full border-2 border-black transition-all duration-300 ease-out hover:scale-105 peer-checked:bg-black peer-checked:[&>svg]:opacity-100"
         aria-hidden="true"
       >
         <svg
@@ -20,7 +20,7 @@ export default function Checkbox({ checked, onChange }) {
           fill="none"
           className="h-4 w-4 stroke-white opacity-0 transition-opacity"
         >
-          <path d="M5 13l4 4L19 7" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+          <path d="M5 13l4 4L19 7" strokeWidth="3" />
         </svg>
       </div>
     </label>

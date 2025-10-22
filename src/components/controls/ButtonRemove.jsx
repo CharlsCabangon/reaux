@@ -4,7 +4,7 @@ export default function ButtonRemove({ onClick }) {
   return (
     <button
       onClick={onClick}
-      className="rounded-full p-1 transition-all duration-500 ease-out hover:bg-off-white"
+      className="rounded-full p-1 transition-all duration-500 ease-out hover:bg-off-white-muted/50"
     >
       <RemoveIcon />
     </button>
