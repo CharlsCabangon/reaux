@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion } from 'framer-motion';
 
 import { ChevronDownIcon } from '@heroicons/react/20/solid';
 import CheckIcon from '@/assets/icons/CheckIcon';
@@ -39,13 +39,15 @@ export default function FilterDropdown({ label, options = [], value, onChange, c
   return (
     <label
       ref={dropdownRef}
-      className="relative flex cursor-pointer select-none flex-col gap-1 rounded-md px-5 py-2 transition-colors duration-200 hover:bg-off-white"
+      className="relative flex cursor-pointer select-none flex-col gap-1 rounded-md px-5 py-2 text-center transition-colors duration-200 hover:bg-off-white"
     >
-      <div className="flex items-center">
-        <p className="mr-1 whitespace-nowrap font-sourceSerif text-sm font-semibold">{label}</p>
-        <ChevronDownIcon
-          className={`size-4 text-black transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`}
-        />
+      <div className="flex items-center gap-1">
+        <p className="whitespace-nowrap font-sourceSerif text-sm font-semibold">{label}</p>
+        {options && (
+          <ChevronDownIcon
+            className={`size-4 text-black transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`}
+          />
+        )}
       </div>
 
       <button

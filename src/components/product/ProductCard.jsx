@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 export default function ProductCard({ item }) {
   const [isHover, setHover] = useState(false);
@@ -42,3 +43,16 @@ export default function ProductCard({ item }) {
     </div>
   );
 }
+
+ProductCard.propTypes = {
+  item: PropTypes.shape({
+    id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+    name: PropTypes.string.isRequired,
+    specs: PropTypes.string,
+    price: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+    images: PropTypes.shape({
+      main: PropTypes.string.isRequired,
+      worn: PropTypes.string,
+    }).isRequired,
+  }).isRequired,
+};

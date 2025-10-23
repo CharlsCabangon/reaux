@@ -27,10 +27,10 @@
     @apply text-3xl;
   }
   h5 {
-    @apply text-2xl;
+    @apply text-xl;
   }
   h6 {
-    @apply text-xl;
+    @apply text-base;
   }
 
   p {
@@ -40,7 +40,7 @@
     @apply cursor-pointer font-roboto text-black-muted underline;
   }
   hr {
-    @apply mx-auto my-20 w-[90%] border-t-2 border-black/75;
+    @apply mx-auto my-14 w-[90%] border-t-2 border-black/75;
   }
 }
 

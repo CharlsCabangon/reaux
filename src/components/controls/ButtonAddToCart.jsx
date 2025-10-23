@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 import { useCart } from '@/context/useCart';
 
 export default function ButtonAddToCart({ product, quantity = 1 }) {

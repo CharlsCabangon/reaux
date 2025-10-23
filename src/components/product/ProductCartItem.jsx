@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 import Checkbox from '../controls/Checkbox';
 import QuantitySelector from '@/components/controls/QuantitySelector';
@@ -49,3 +50,23 @@ export default function ProductCartItem({
     </li>
   );
 }
+
+ProductCartItem.propTypes = {
+  cartItem: PropTypes.shape({
+    id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+    item: PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      specs: PropTypes.string,
+      price: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+      images: PropTypes.shape({
+        main: PropTypes.string,
+        worn: PropTypes.string,
+      }),
+    }).isRequired,
+    quantity: PropTypes.number.isRequired,
+  }).isRequired,
+  selected: PropTypes.bool.isRequired,
+  onSelectToggle: PropTypes.func.isRequired,
+  onQuantityChange: PropTypes.func.isRequired,
+  onRemove: PropTypes.func.isRequired,
+};

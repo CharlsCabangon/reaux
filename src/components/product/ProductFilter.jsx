@@ -2,10 +2,15 @@ import PropTypes from 'prop-types';
 
 import FilterDropdown from './FilterDropdown';
 import useProductFilterOptions from '@/hooks/useProductFilterOptions';
-
 import { capitalize } from '@/utils/capitalizeText';
+import ButtonRemove from '../controls/ButtonRemove';
 
-export default function ProductFilter({ products = [], value = {}, onFilterChange }) {
+export default function ProductFilter({
+  products = [],
+  value = {},
+  onFilterChange,
+  onFilterReset,
+}) {
   const { categories, collections } = useProductFilterOptions(products);
 
   const category = value.category ?? 'all'; // fall back to 'all'
@@ -17,8 +22,8 @@ export default function ProductFilter({ products = [], value = {}, onFilterChang
   };
 
   return (
-    <section className="flex w-full flex-wrap justify-between bg-white px-24 pb-4 pt-6 shadow-md">
-      <div className="flex gap-5">
+    <section className="flex w-full flex-wrap justify-between bg-white px-24 pb-4 pt-6 shadow-sm">
+      <div className="flex items-center gap-5">
         <FilterDropdown
           label="Shop by Category"
           options={categories}
@@ -36,7 +41,7 @@ export default function ProductFilter({ products = [], value = {}, onFilterChang
         <FilterDropdown label="More at Reaux" options={null} />
       </div>
 
-      <div>
+      <div className="relative flex items-center gap-5">
         <FilterDropdown
           label="Sort By"
           options={[
@@ -49,6 +54,9 @@ export default function ProductFilter({ products = [], value = {}, onFilterChang
           value={sort}
           onChange={handleChange('sort')}
         />
+        <div onClick={onFilterReset}>
+          <FilterDropdown label="Clear" options={null} />
+        </div>
       </div>
     </section>
   );
@@ -62,4 +70,5 @@ ProductFilter.propTypes = {
     sort: PropTypes.string,
   }),
   onFilterChange: PropTypes.func.isRequired,
+  onFilterReset: PropTypes.func.isRequired,
 };

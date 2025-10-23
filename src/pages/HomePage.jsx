@@ -3,8 +3,11 @@ import PressMarquee from '@/components/Marquee';
 import Feature from '@/components/Feature';
 import DecorCard from '@/components/DecorCard';
 import Banner from '@/components/Banner';
+import CTA from '@/components/CTA';
 
 import { getAsset } from '@/data/assetData';
+import { PrimaryBtn } from '@/components/controls/Button';
+import ProductFeature from '@/components/product/ProductFeature';
 
 export default function HomePage() {
   return (
@@ -12,7 +15,7 @@ export default function HomePage() {
       <Hero />
       <PressMarquee />
       <Feature img={getAsset('rendered-perfectly')} />
-      <hr />
+      <ProductFeature />
       <section className="flex w-full flex-col items-center gap-20 bg-light-gray py-20">
         <h2>Shop the collection</h2>
         <div className="flex justify-center gap-20">
@@ -27,6 +30,16 @@ export default function HomePage() {
         <DecorCard img={getAsset('infinite')} isGlare={true} />
         <DecorCard img={getAsset('cascade')} isGlare={true} />
       </section>
+      <CTA>
+        <h3>Sign up and get 10% off</h3>
+        <p>
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nesciunt iure soluta animi rem
+          ducimus ab! Ipsa tempore quas dolor, nobis quam reiciendis at repudiandae ullam, aut rerum
+          fugiat dolore recusandae repellat, necessitatibus iure harum sequi voluptates neque magnam
+          est molestiae.
+        </p>
+        <PrimaryBtn name="Join the Reaux Club" />
+      </CTA>
     </>
   );
 }

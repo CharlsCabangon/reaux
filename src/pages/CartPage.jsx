@@ -2,11 +2,10 @@ import { useState, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import { useCart } from '../context/useCart';
-
+import { PrimaryBtn } from '@/components/controls/Button';
 import ProductCartItem from '@/components/product/ProductCartItem';
 import FallbackPage from './FallbackPage';
 import Checkbox from '@/components/controls/Checkbox';
-import { PrimaryBtn } from '@/components/controls/Button';
 
 export default function CartPage() {
   const { cartItems, updateQuantity, removeCartItem, removeCartItems } = useCart();

@@ -1,7 +1,9 @@
 import { Routes, Route } from 'react-router-dom';
+import { Analytics } from '@vercel/analytics/react';
 
-import Header from './header/Header';
-import Footer from './Footer';
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
+import ScrollToTop from '@/components/controls/ScrollToTop';
 
 import HomePage from '@/pages/HomePage';
 import ShopPage from '@/pages/ShopPage';
@@ -12,6 +14,7 @@ export default function App() {
   return (
     <>
       <Header />
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/shop" element={<ShopPage />} />
@@ -19,6 +22,7 @@ export default function App() {
         <Route path="/product/:id" element={<ProductPage />} />
       </Routes>
       <Footer />
+      <Analytics />
     </>
   );
 }

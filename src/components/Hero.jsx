@@ -31,7 +31,7 @@ export default function Hero() {
   const handleSlideChange = (index) => setHeroIndex(index);
 
   return (
-    <section className="relative min-h-screen w-full overflow-hidden">
+    <main className="relative min-h-screen w-full overflow-hidden">
       <Flickity
         className="h-full w-full"
         elementType="div"
@@ -85,11 +85,11 @@ export default function Hero() {
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.6, ease: 'easeInOut' }}
           >
-            <p className="font-sourceSerif text-xl font-semibold">{hero[heroIndex]?.title}</p>
+            <h5 className="font-semibold">{hero[heroIndex]?.title}</h5>
             <p className="mt-3 text-sm leading-relaxed">{hero[heroIndex]?.details}</p>
           </motion.div>
         </AnimatePresence>
       </div>
-    </section>
+    </main>
   );
 }

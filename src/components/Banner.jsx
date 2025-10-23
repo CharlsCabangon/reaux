@@ -38,4 +38,6 @@ Banner.propTypes = {
     image: PropTypes.string.isRequired,
     alt: PropTypes.string,
   }).isRequired,
+  imgClassName: PropTypes.string,
+  hasCTA: PropTypes.bool,
 };

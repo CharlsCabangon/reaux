@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 export function PrimaryBtn({ name, type = 'button', onClick }) {
   return (
     <button
@@ -29,3 +31,15 @@ export function SecondaryBtn({ name, type = 'button', onClick }) {
     </button>
   );
 }
+
+PrimaryBtn.PropTypes = {
+  name: PropTypes.string.isRequired,
+  type: PropTypes.oneOf(['button', 'submit', 'reset']),
+  onClick: PropTypes.func.isRequired,
+};
+
+SecondaryBtn.PropTypes = {
+  name: PropTypes.string.isRequired,
+  type: PropTypes.oneOf(['button', 'submit', 'reset']),
+  onClick: PropTypes.func.isRequired,
+};

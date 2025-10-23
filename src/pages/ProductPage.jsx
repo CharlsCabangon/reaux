@@ -1,6 +1,7 @@
 import { useParams, useNavigate } from 'react-router-dom';
 
 import ProductDetail from '../components/product/ProductDetail';
+import ProductFeature from '@/components/product/ProductFeature';
 import FallbackPage from './FallbackPage';
 import { PrimaryBtn } from '@/components/controls/Button';
 import { jewelryData } from '../data/productData';
@@ -25,6 +26,11 @@ export default function ProductPage() {
       <main className="mt-32 min-h-screen md:p-12">
         <ProductDetail product={product} />
       </main>
+      <hr />
+      <section className="mb-32">
+        <h2 className="text-center">Recommended for you</h2>
+        <ProductFeature />
+      </section>
     </>
   );
 }

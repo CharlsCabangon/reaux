@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import PropTypes from 'prop-types';
 
 import ButtonAddToCart from '../controls/ButtonAddToCart';
 import QuantitySelector from '../controls/QuantitySelector';
@@ -45,11 +46,21 @@ export default function ProductDetail({ product }) {
           </div>
         </div>
       </main>
-      <hr className="mb-15" />
-      <section>
-        <h2 className="text-center">Recommended for you</h2>
-        {/* recommended products */}
-      </section>
     </>
   );
 }
+
+ProductDetail.propTypes = {
+  product: PropTypes.shape({
+    id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    name: PropTypes.string.isRequired,
+    specs: PropTypes.string,
+    price: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+    description: PropTypes.string,
+    careInstructions: PropTypes.arrayOf(PropTypes.string),
+    images: PropTypes.shape({
+      main: PropTypes.string.isRequired,
+      worn: PropTypes.string,
+    }).isRequired,
+  }).isRequired,
+};

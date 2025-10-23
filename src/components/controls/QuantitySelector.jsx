@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 export default function QuantitySelector({ value = 1, onChange }) {
   const increment = () => onChange(Math.max(1, value + 1));
@@ -43,3 +44,8 @@ export default function QuantitySelector({ value = 1, onChange }) {
     </div>
   );
 }
+
+QuantitySelector.propTypes = {
+  value: PropTypes.number,
+  onChange: PropTypes.func.isRequired,
+};

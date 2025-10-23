@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 export default function FallbackPage({ children }) {
   return (
     <main className="flex min-h-screen">
@@ -5,3 +7,7 @@ export default function FallbackPage({ children }) {
     </main>
   );
 }
+
+FallbackPage.propTypes = {
+  children: PropTypes.node,
+};
