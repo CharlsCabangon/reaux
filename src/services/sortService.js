@@ -1,6 +1,6 @@
 import { parsePrice } from '@/utils/parsePrice';
 
-export function applySort(list, sortKey) {
+export function applySort(list = [], sortKey) {
   if (!sortKey || sortKey === 'default') return list;
 
   const listCopy = [...list];

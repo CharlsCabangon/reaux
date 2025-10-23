@@ -13,11 +13,11 @@ export default function ProductFilter({ products = [], value = {}, onFilterChang
   const sort = value.sort ?? 'default'; // fall back to 'default'
 
   const handleChange = (key) => (e) => {
-    onFilterChange({ category, collection, sort, [key]: e.target.value });
+    onFilterChange({ [key]: e.target.value });
   };
 
   return (
-    <section className="flex w-full flex-wrap justify-between bg-white px-24 pb-5 pt-6 shadow-md">
+    <section className="flex w-full flex-wrap justify-between bg-white px-24 pb-4 pt-6 shadow-md">
       <div className="flex gap-5">
         <FilterDropdown
           label="Shop by Category"
@@ -32,14 +32,20 @@ export default function ProductFilter({ products = [], value = {}, onFilterChang
           value={collection}
           onChange={handleChange('collection')}
         />
-        <FilterDropdown label="Lab Diamonds" />
-        <FilterDropdown label="More at Reaux" />
+        <FilterDropdown label="Lab Diamonds" options={null} />
+        <FilterDropdown label="More at Reaux" options={null} />
       </div>
 
-      <div className="mr-20">
+      <div>
         <FilterDropdown
           label="Sort By"
-          options={['default', 'price-asc', 'price-desc', 'name-asc', 'name-desc']}
+          options={[
+            { label: 'Default', value: 'default' },
+            { label: 'Price (low → high)', value: 'price-asc' },
+            { label: 'Price (high → low)', value: 'price-desc' },
+            { label: 'Name (A → Z)', value: 'name-asc' },
+            { label: 'Name (Z → A)', value: 'name-desc' },
+          ]}
           value={sort}
           onChange={handleChange('sort')}
         />
