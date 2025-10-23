@@ -1,3 +1,5 @@
+import CheckIcon from '@/assets/icons/CheckIcon';
+
 export default function Checkbox({ checked, onChange }) {
   return (
     <label className="flex cursor-pointer select-none items-center gap-2.5 text-black">
@@ -14,14 +16,7 @@ export default function Checkbox({ checked, onChange }) {
         className="flex h-6 w-6 items-center justify-center rounded-full border-2 border-black transition-all duration-300 ease-out hover:scale-105 peer-checked:bg-black peer-checked:[&>svg]:opacity-100"
         aria-hidden="true"
       >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 24 24"
-          fill="none"
-          className="h-4 w-4 stroke-white opacity-0 transition-opacity"
-        >
-          <path d="M5 13l4 4L19 7" strokeWidth="3" />
-        </svg>
+        <CheckIcon className="opacity-0 transition-opacity" />
       </div>
     </label>
   );
