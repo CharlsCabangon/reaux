@@ -1,5 +1,8 @@
 import { useState, useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
+
+import { AnimatePresence, motion } from "framer-motion";
+
 import { ChevronDownIcon } from '@heroicons/react/20/solid';
 import CheckIcon from '@/assets/icons/CheckIcon';
 
@@ -53,27 +56,35 @@ export default function FilterDropdown({ label, options = [], value, onChange, c
         {/* <span>{formatOption(value)}</span> */}
       </button>
 
-      {options && isOpen && (
-        <ul className="absolute top-full z-10 mt-1 max-h-72 w-[150%] overflow-auto rounded-md bg-white tracking-wide shadow-lg ring-1 ring-off-white">
-          {options.map((opt) => {
-            const optValue = getValue(opt);
-            const optLabel = getLabel(opt);
-            const isActive = value === optValue;
-            return (
-              <li
-                key={optValue}
-                onClick={() => handleSelect(opt)}
-                className={`m-1 flex cursor-pointer items-center justify-between rounded-sm px-3 py-2 text-sm text-black hover:bg-off-white ${
-                  isActive ? 'bg-off-white' : ''
-                }`}
-              >
-                <span className="truncate">{optLabel}</span>
-                {isActive && <CheckIcon color="black" strokeWidth={2} />}
-              </li>
-            );
-          })}
-        </ul>
-      )}
+      <AnimatePresence>
+        {options && isOpen && (
+          <motion.ul
+            initial={{ opacity: 0, scaleY: 0.8, originY: 0 }}
+            animate={{ opacity: 1, scaleY: 1, originY: 0 }}
+            exit={{ opacity: 0, scaleY: 0.8, originY: 0 }}
+            transition={{ duration: 0.25, ease: 'easeOut' }}
+            className="absolute top-full z-10 mt-1 max-h-72 w-[150%] overflow-auto rounded-md bg-white tracking-wide shadow-lg ring-1 ring-off-white"
+          >
+            {options.map((opt) => {
+              const optValue = getValue(opt);
+              const optLabel = getLabel(opt);
+              const isActive = value === optValue;
+              return (
+                <li
+                  key={optValue}
+                  onClick={() => handleSelect(opt)}
+                  className={`m-1 flex cursor-pointer items-center justify-between rounded-sm px-3 py-2 text-sm text-black hover:bg-off-white ${
+                    isActive ? 'bg-off-white' : ''
+                  }`}
+                >
+                  <span className="truncate">{optLabel}</span>
+                  {isActive && <CheckIcon color="black" strokeWidth={2} />}
+                </li>
+              );
+            })}
+          </motion.ul>
+        )}
+      </AnimatePresence>
     </label>
   );
 }
