@@ -1,29 +1,35 @@
 import PropTypes from 'prop-types';
-
 import Heading from './Heading';
 
-export default function Feature({ img, isLeft = true, children = null }) {
+export default function Feature({ img, isLeft = true, hasContent = true, children = null }) {
   return (
     <section
-      className={`my-10 flex h-screen w-full items-center ${
-        isLeft ? 'flex-row' : 'flex-row-reverse'
+      className={`my-14 flex flex-col items-center justify-center gap-10 px-6 md:my-20 md:flex-row ${
+        isLeft ? '' : 'md:flex-row-reverse'
       }`}
     >
-      <div className="flex h-full w-[50%] justify-center">
+      <div className="flex w-full justify-center md:w-1/2">
         <img
           src={img.image}
           alt={img.alt}
-          className="h-auto w-[75%] min-w-[400px] max-w-[800px] rounded-lg object-cover"
+          className="h-[500px] w-full max-w-[700px] rounded-lg object-cover shadow-md md:h-[650px] lg:h-[750px]"
         />
       </div>
-      <div className={`w-[50%] px-5 ${isLeft ? '' : 'ml-20'}`}>
-        <Heading heading={img.title} />
-        <p className="mt-4 w-5/6 font-light text-black">
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Id eum magni, consectetur atque
-          maxime officiis, sunt, incidunt aliquam alias nam sit? Quam quia animi fuga earum, facilis
-          atque tempora, voluptas praesentium sed molestias voluptate. Exercitationem iure
-          asperiores nam porro voluptatem.
-        </p>
+
+      <div
+        className={`w-full text-center md:w-1/2 md:text-left ${isLeft ? 'md:pl-14 md:pr-10' : 'md:pl-20 md:pr-10'}`}
+      >
+        {hasContent && (
+          <>
+            <Heading heading={img.title} />
+            <p className="mt-4 font-light text-black">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Id eum magni, consectetur
+              atque maxime officiis, sunt, incidunt aliquam alias nam sit? Quam quia animi fuga
+              earum, facilis atque tempora, voluptas praesentium sed molestias voluptate.
+              Exercitationem iure asperiores nam porro voluptatem.
+            </p>
+          </>
+        )}
         {children}
       </div>
     </section>
@@ -37,7 +43,7 @@ Feature.propTypes = {
     image: PropTypes.string.isRequired,
     alt: PropTypes.string,
   }).isRequired,
-
   isLeft: PropTypes.bool,
+  hasContent: PropTypes.bool,
   children: PropTypes.node,
 };
