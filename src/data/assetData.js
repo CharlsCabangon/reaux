@@ -8,6 +8,7 @@ const SUBFOLDERS = {
 };
 const EXTENSIONS = {
   image: 'avif',
+  video: 'webm',
   icon: 'svg',
 };
 
@@ -67,6 +68,30 @@ const asset = [
     title: 'Rendered perfectly',
     image: getAssetUrl(SUBFOLDERS.banner, 'banner-rendered-perfectly', EXTENSIONS.image),
     alt: 'Ariana Grande Swarovski Holiday 2024 Ad Campaign',
+  },
+  {
+    id: 'ariana-swarovski-capsule-collection',
+    title: 'Capsule Collection',
+    image: getAssetUrl(SUBFOLDERS.decor, 'ariana-swarovski-capsule-collection', EXTENSIONS.image),
+    alt: 'Ariana Grande in Swarovski Capsule Collection',
+  },
+  {
+    id: 'fine-design',
+    title: 'Fine design',
+    image: getAssetUrl(SUBFOLDERS.decor, 'fine-design', EXTENSIONS.image),
+    alt: 'Swarovski brand visual',
+  },
+  {
+    id: 'reactive-framework',
+    title: 'Reactive framework',
+    image: getAssetUrl(SUBFOLDERS.decor, 'reactive-framework', EXTENSIONS.image),
+    alt: 'Swarovski brand model',
+  },
+  {
+    id: 'capsule-collection-video',
+    title: 'Rendered perfectly',
+    video: getAssetUrl(SUBFOLDERS.decor, 'capsule-collection-video', EXTENSIONS.video),
+    alt: 'Swarovski Capsule Collection',
   },
 ];
 
