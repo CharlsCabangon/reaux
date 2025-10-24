@@ -34,7 +34,7 @@
   }
 
   p {
-    @apply font-roboto text-base font-light leading-normal tracking-wide;
+    @apply max-w-75ch font-roboto text-base font-light leading-normal tracking-wide;
   }
   a {
     @apply cursor-pointer font-roboto text-black-muted underline;

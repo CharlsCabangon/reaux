@@ -15,7 +15,7 @@ export default function HomePage() {
       <Hero />
       <PressMarquee />
       <Feature img={getAsset('rendered-perfectly')} />
-      <ProductFeature />
+      <hr />
       <section className="flex w-full flex-col items-center gap-20 bg-light-gray py-20">
         <h2>Shop the collection</h2>
         <div className="flex justify-center gap-20">
@@ -24,19 +24,23 @@ export default function HomePage() {
           <DecorCard img={getAsset('reaux-vision')} />
         </div>
       </section>
-      <Banner img={getAsset('banner-diamonds-are-forever')} imgClassName="object-[0_35%]" />
-      <section className="flex w-full justify-center gap-20 py-20">
+      <Banner
+        banner={{ type: 'image', src: getAsset('banner-diamonds-are-forever') }}
+        imgClassName="object-[0_35%]"
+      />
+      {console.log(getAsset('banner-diamonds-are-forever'))}
+      <section className="flex w-full justify-center gap-20 pb-16 pt-24">
         <DecorCard img={getAsset('ephemeral')} isGlare={true} />
         <DecorCard img={getAsset('infinite')} isGlare={true} />
         <DecorCard img={getAsset('cascade')} isGlare={true} />
       </section>
+      <hr />
       <CTA>
         <h3>Sign up and get 10% off</h3>
-        <p>
+        <p className="max-w-75ch">
           Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nesciunt iure soluta animi rem
           ducimus ab! Ipsa tempore quas dolor, nobis quam reiciendis at repudiandae ullam, aut rerum
-          fugiat dolore recusandae repellat, necessitatibus iure harum sequi voluptates neque magnam
-          est molestiae.
+          fugiat dolore recusandae repellat.
         </p>
         <PrimaryBtn name="Join the Reaux Club" />
       </CTA>

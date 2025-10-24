@@ -1,6 +1,7 @@
 import { NavLink } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
+import ReauxLogo from '@/assets/logo/ReauxLogo';
 import ButtonCart from './controls/ButtonCart';
 import SearchIcon from '@/assets/icons/SearchIcon';
 import LocationIcon from '@/assets/icons/LocationIcon';
@@ -19,7 +20,9 @@ export default function NavBar() {
             <LocationIcon />
             <p className="font-sourceSerif font-normal">Store</p>
           </div>
-          <div className="mb-2 font-pinyon text-7xl">Reaux</div>
+          <div className="pb-5">
+            <ReauxLogo size={14} hasHover={true} />
+          </div>
           <div className="flex gap-5">
             <SearchIcon />
             <ButtonCart />

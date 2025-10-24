@@ -32,7 +32,10 @@ export default function ShopPage() {
 
   return (
     <>
-      <Banner img={getAsset('banner-rendered-perfectly')} hasCTA={false} />
+      <Banner
+        banner={{type: 'video', src: getAsset('capsule-collection-video')}}
+        hasCTA={false}
+      />
       <ProductFilter
         products={products}
         value={filters}

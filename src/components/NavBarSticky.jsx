@@ -1,6 +1,8 @@
 import { NavLink } from 'react-router-dom';
 
 import { motion, AnimatePresence } from 'framer-motion';
+
+import ReauxLogo from '@/assets/logo/ReauxLogo';
 import ButtonCart from './controls/ButtonCart';
 import SearchIcon from '@/assets/icons/SearchIcon';
 
@@ -13,7 +15,9 @@ export default function NavBarSticky() {
       exit={{ y: -100, opacity: 0 }}
     >
       <div className="flex justify-between">
-        <div className="font-pinyon text-3xl">Reaux</div>
+        <div>
+          <ReauxLogo size={5} />
+        </div>
         <nav>
           <ul className="flex justify-center gap-8">
             <li>

@@ -17,6 +17,10 @@ module.exports = {
         sourceSerif: ['"Source Serif 4"', 'serif'],
         roboto: ['Roboto', 'sans-serif'],
       },
+      maxWidth: {
+        '60ch': '60ch',
+        '75ch': '75ch',
+      },
     },
   },
   plugins: [],
