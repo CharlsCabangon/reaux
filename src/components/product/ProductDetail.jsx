@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 import ButtonAddToCart from '../controls/ButtonAddToCart';
@@ -6,16 +6,37 @@ import QuantitySelector from '../controls/QuantitySelector';
 
 export default function ProductDetail({ product }) {
   const [quantity, setQuantity] = useState(1);
+  const [selectedImage, setSelectedImage] = useState(product.images.main);
+
+  const allImages = Object.values(product.images).filter(Boolean);
+
+  useEffect(() => {
+    setSelectedImage(product.images.main);
+    setQuantity(1);
+  }, [product]);
 
   return (
     <>
       <main className="mx-auto grid max-w-6xl grid-cols-1 gap-5 md:grid-cols-2">
-        <div className="order-1 flex items-start justify-center">
+        <div className="order-1 flex flex-col items-center justify-center">
           <img
-            src={product.images.main}
+            src={selectedImage}
             alt={product.name}
             className="w-full max-w-[700px] cursor-pointer rounded-lg object-cover shadow-md"
           />
+          <div className="mt-4 flex flex-wrap justify-center gap-3">
+            {allImages.map((img, index) => (
+              <img
+                key={index}
+                src={img}
+                alt={`${product.name} thumbnail ${index + 1}`}
+                className={`h-20 w-20 cursor-pointer rounded-sm border-2 object-cover shadow-sm transition-all duration-200 hover:border-black hover:opacity-80 ${
+                  selectedImage === img ? 'border-black' : 'border-transparent'
+                }`}
+                onClick={() => setSelectedImage(img)}
+              />
+            ))}
+          </div>
         </div>
 
         <div className="order-2 flex flex-col gap-5">
