@@ -14,7 +14,7 @@ export default function ReauxLogo({ color = 'brand-black', size = 15, hasHover =
       src={src}
       alt="Reaux logo"
       style={{ width: `${size}vw` }}
-      className={`max-w-[300px] cursor-pointer transition-transform duration-300 ease-in-out ${hasHover ? 'hover:scale-105' : ''}`}
+      className={`max-w-[300px] transition-transform duration-300 ease-in-out ${hasHover ? 'hover:scale-105' : ''}`}
     />
   );
 }

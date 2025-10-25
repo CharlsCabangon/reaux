@@ -5,7 +5,7 @@ import { logos } from '@/data/assetData';
 export default function PressMarquee() {
   return (
     <div className="w-full bg-black py-8">
-      <Marquee speed={40} autoFill={true} pauseOnHover={true}>
+      <Marquee speed={50} autoFill={true} pauseOnHover={false}>
         {logos.map((logo) => (
           <div className="mx-24 flex items-center">
             <img
