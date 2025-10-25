@@ -2,16 +2,18 @@ import { useState, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import { useCart } from '../context/useCart';
-import { PrimaryBtn } from '@/components/controls/Button';
+
 import ProductCartItem from '@/components/product/ProductCartItem';
+import Dialog from '@/components/Dialog';
 import FallbackPage from './FallbackPage';
 import Checkbox from '@/components/controls/Checkbox';
+import { PrimaryBtn } from '@/components/controls/Button';
 
 export default function CartPage() {
   const { cartItems, updateQuantity, removeCartItem, removeCartItems } = useCart();
 
   const [selectedIds, setSelectedIds] = useState(() => cartItems.map((ci) => ci.id)); // default: all selected
-  const [message, setMessage] = useState('');
+  const [activeDialog, setActiveDialog] = useState(null);
 
   const navigate = useNavigate();
 
@@ -41,15 +43,20 @@ export default function CartPage() {
 
   const handleCheckout = () => {
     if (!selectedIds.length) {
-      setMessage('No items selected for checkout.');
+      setActiveDialog('failed');
       setTimeout(() => setMessage(''), 2000);
       return;
     }
 
-    removeCartItems(selectedIds);
-    setSelectedIds([]);
-    setMessage('Checked-out items successfully');
-    setTimeout(() => setMessage(''), 2500);
+    setActiveDialog('success');
+  };
+
+  const handleDialogClose = () => {
+    if (activeDialog === 'success') {
+      removeCartItems(selectedIds);
+      setSelectedIds([]);
+    }
+    setActiveDialog(null);
   };
 
   if (!cartItems.length) {
@@ -107,11 +114,23 @@ export default function CartPage() {
               <p className="text-base font-normal text-black">Total:</p>
               <h6 className="font-semibold">${total.toFixed(2)}</h6>
             </div>
-            {message && <p className="mt-2 text-sm text-green-600">{message}</p>}
             <PrimaryBtn name="Checkout" onClick={handleCheckout} />
           </div>
         </div>
       </div>
+
+      {activeDialog && (
+        <Dialog
+          isOpen={!!activeDialog}
+          title={activeDialog === 'success' ? 'Checkout Successful' : 'Checkout Failed'}
+          message={
+            activeDialog === 'success'
+              ? 'Checkout successful!'
+              : 'No items were selected for checkout.'
+          }
+          onClose={handleDialogClose}
+        />
+      )}
     </main>
   );
 }
