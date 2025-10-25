@@ -67,8 +67,7 @@ export default function Hero() {
           }
         />
         <p className="mt-10 w-1/2">
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Autem, reiciendis voluptatem
-          facilis eveniet sapiente commodi!
+          Crafted through intention and innovation, Reaux defines the new era of fine jewelry.
         </p>
         <div className="mt-5 flex gap-5">
           <PrimaryBtn name="Shop now" />

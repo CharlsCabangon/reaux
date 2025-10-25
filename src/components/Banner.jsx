@@ -27,13 +27,10 @@ export default function Banner({ banner, imgClassName, hasCTA = true }) {
       </div>
       <div className="absolute bottom-10 z-10 flex w-2/3 flex-col items-center text-center text-off-white">
         <Heading heading={banner.src.title} />
-        <p className="mb-3 font-light">
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit soluta enim dicta
-          atque iste, illo, et delectus, quibusdam quos.
-        </p>
+        <p className="mb-3">{banner.src.content}</p>
         {hasCTA && (
           <a href="" className="text-off-white-muted">
-            Read more
+            {banner.src.cta}
           </a>
         )}
       </div>

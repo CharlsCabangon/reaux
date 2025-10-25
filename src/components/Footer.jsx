@@ -35,7 +35,7 @@ export default function Footer() {
         </div>
         <div className="flex flex-1 flex-col items-center justify-center">
           <div className="">
-            <ReauxLogo color="white" hasHover={true} />
+            <ReauxLogo color="white" />
           </div>
           <p className="mb-8 mt-4 text-xs">
             © {new Date().getFullYear()} Reaux. All rights reserved.

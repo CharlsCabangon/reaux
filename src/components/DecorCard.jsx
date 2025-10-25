@@ -2,12 +2,12 @@ import PropTypes from 'prop-types';
 
 import Tilt from 'react-parallax-tilt';
 
-export default function DecorCard({ img, link = 'See more', isGlare = false }) {
+export default function DecorCard({ img, link = 'See more', hasGlare = false }) {
   return (
     <div className="align-center flex w-[24rem] flex-col justify-center text-center">
       <Tilt
         tiltEnable={false}
-        glareEnable={isGlare}
+        glareEnable={hasGlare}
         glarePosition="all"
         glareMaxOpacity={0.3}
         glareBorderRadius="0.75rem"
@@ -35,5 +35,5 @@ DecorCard.propTypes = {
     alt: PropTypes.string,
   }).isRequired,
   link: PropTypes.string,
-  isGlare: PropTypes.bool,
+  hasGlare: PropTypes.bool,
 };
