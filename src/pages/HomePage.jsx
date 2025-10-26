@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+
 import Hero from '@/components/Hero';
 import PressMarquee from '@/components/Marquee';
 import Feature from '@/components/Feature';
@@ -9,6 +11,10 @@ import { getAsset } from '@/data/assetData';
 import { PrimaryBtn } from '@/components/controls/Button';
 
 export default function HomePage() {
+  useEffect(() => {
+    document.title = 'Reaux Online Store';
+  }, []);
+
   return (
     <>
       <Hero />

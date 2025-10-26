@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useParams, useNavigate } from 'react-router-dom';
 
 import ProductDetail from '../components/product/ProductDetail';
@@ -11,6 +12,10 @@ export default function ProductPage() {
   const navigate = useNavigate();
 
   const product = jewelryData.find((p) => p.id === id);
+
+  useEffect(() => {
+    document.title = `${product.name} | Reaux Online Store`;
+  }, [product.id]);
 
   if (!product) {
     return (

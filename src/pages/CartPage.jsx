@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import { useCart } from '../context/useCart';
@@ -16,6 +16,10 @@ export default function CartPage() {
   const [activeDialog, setActiveDialog] = useState(null);
 
   const navigate = useNavigate();
+
+  useEffect(() => {
+    document.title = 'Your Shopping Cart | Reaux Online Store';
+  }, []);
 
   const handleOpenShopPage = () => {
     navigate('/shop');
@@ -44,7 +48,6 @@ export default function CartPage() {
   const handleCheckout = () => {
     if (!selectedIds.length) {
       setActiveDialog('failed');
-      setTimeout(() => setMessage(''), 2000);
       return;
     }
 

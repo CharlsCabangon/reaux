@@ -1,4 +1,4 @@
-import { useCallback, useMemo, useState } from 'react';
+import { useState, useEffect, useMemo, useCallback } from 'react';
 
 import Banner from '@/components/Banner';
 import ProductFilter from '@/components/product/ProductFilter';
@@ -19,6 +19,10 @@ export default function ShopPage() {
     collection: 'all',
     sort: 'default',
   });
+
+  useEffect(() => {
+    document.title = 'Reaux Online Store';
+  }, []);
 
   const filteredProducts = useFilteredProducts(products, filters);
 

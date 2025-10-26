@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+
 import Feature from '@/components/Feature';
 import Heading from '@/components/Heading';
 import PressMarquee from '@/components/Marquee';
@@ -7,6 +9,10 @@ import { PrimaryBtn } from '@/components/controls/Button';
 import { getAsset } from '@/data/assetData';
 
 export default function AboutPage() {
+  useEffect(() => {
+    document.title = 'The Story of Reaux';
+  }, []);
+
   return (
     <main className="mt-56 flex flex-col">
       <div className="flex flex-col items-center gap-12 text-center">
