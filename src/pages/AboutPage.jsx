@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect } from 'react';
 
 import Feature from '@/components/Feature';
 import Heading from '@/components/Heading';

@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect } from 'react';
 
 import Hero from '@/components/Hero';
 import PressMarquee from '@/components/Marquee';
