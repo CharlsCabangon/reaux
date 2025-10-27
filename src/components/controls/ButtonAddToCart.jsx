@@ -21,3 +21,19 @@ export default function ButtonAddToCart({ product, quantity = 1 }) {
     </button>
   );
 }
+
+ButtonAddToCart.propTypes = {
+  product: PropTypes.shape({
+    id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    name: PropTypes.string.isRequired,
+    specs: PropTypes.string,
+    price: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+    description: PropTypes.string,
+    careInstructions: PropTypes.arrayOf(PropTypes.string),
+    images: PropTypes.shape({
+      main: PropTypes.string.isRequired,
+      worn: PropTypes.string,
+    }).isRequired,
+  }).isRequired,
+  quantity: PropTypes.number,
+};

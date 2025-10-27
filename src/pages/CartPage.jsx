@@ -1,7 +1,7 @@
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { useCart } from '../context/useCart';
+import useCart from '@/context/useCart';
 
 import ProductCartItem from '@/components/product/ProductCartItem';
 import Dialog from '@/components/Dialog';
@@ -10,54 +10,41 @@ import Checkbox from '@/components/controls/Checkbox';
 import { PrimaryBtn } from '@/components/controls/Button';
 
 export default function CartPage() {
-  const { cartItems, updateQuantity, removeCartItem, removeCartItems } = useCart();
+  const {
+    cartItems,
+    removeMultiple,
+    updateQuantity,
+    selectedIds,
+    selectAll,
+    unselectAll,
+    toggleItemSelected,
+    total,
+    selectedTotal,
+    clearCart,
+  } = useCart();
 
-  const [selectedIds, setSelectedIds] = useState(() => cartItems.map((ci) => ci.id)); // default: all selected
   const [activeDialog, setActiveDialog] = useState(null);
-
   const navigate = useNavigate();
 
   useEffect(() => {
     document.title = 'Your Shopping Cart | Reaux Online Store';
   }, []);
 
-  const handleOpenShopPage = () => {
-    navigate('/shop');
-  };
-
-  const toggleSelect = (id) => {
-    setSelectedIds((prev) => (prev.includes(id) ? prev.filter((x) => x !== id) : [...prev, id]));
-  };
-
-  const handleQuantityChange = (id, qty) => {
-    updateQuantity(id, Number(qty));
-  };
-
-  const parsePrice = (priceStr) => {
-    if (typeof priceStr === 'number') return priceStr;
-    const num = parseFloat((priceStr || '').replace(/[^0-9.]/g, '')) || 0;
-    return num;
-  };
-
-  const total = useMemo(() => {
-    return cartItems
-      .filter((ci) => selectedIds.includes(ci.id))
-      .reduce((sum, ci) => sum + parsePrice(ci.item.price) * ci.quantity, 0);
-  }, [cartItems, selectedIds]);
+  const handleOpenShopPage = () => navigate('/shop');
 
   const handleCheckout = () => {
-    if (!selectedIds.length) {
+    if (!selectedIds || selectedIds.length === 0) {
       setActiveDialog('failed');
       return;
     }
-
     setActiveDialog('success');
   };
 
   const handleDialogClose = () => {
     if (activeDialog === 'success') {
-      removeCartItems(selectedIds);
-      setSelectedIds([]);
+      // remove selected items and unselect all
+      removeMultiple(selectedIds);
+      unselectAll();
     }
     setActiveDialog(null);
   };
@@ -79,33 +66,20 @@ export default function CartPage() {
       <div className="mx-auto max-w-6xl">
         <div className="mb-3 flex items-center justify-between">
           <h4>Shopping Cart</h4>
-          <div className="flex gap-4">
+          <div className="flex items-center gap-4">
             <span className="text-base">
               {selectedIds.length === cartItems.length ? 'Unselect all' : 'Select all'}
             </span>
             <Checkbox
               checked={selectedIds.length === cartItems.length}
-              onChange={(e) => {
-                if (e.target.checked) {
-                  setSelectedIds(cartItems.map((ci) => ci.id));
-                } else {
-                  setSelectedIds([]);
-                }
-              }}
+              onChange={(e) => (e.target.checked ? selectAll() : unselectAll())}
             />
           </div>
         </div>
 
         <ul className="space-y-3">
           {cartItems.map((ci) => (
-            <ProductCartItem
-              key={ci.id}
-              cartItem={ci}
-              selected={selectedIds.includes(ci.id)}
-              onSelectToggle={toggleSelect}
-              onQuantityChange={handleQuantityChange}
-              onRemove={removeCartItem}
-            />
+            <ProductCartItem key={ci.id} cartItem={ci} />
           ))}
         </ul>
 
@@ -114,8 +88,8 @@ export default function CartPage() {
 
           <div className="flex flex-col gap-9 md:flex-row">
             <div>
-              <p className="text-base font-normal text-black">Total:</p>
-              <h6 className="font-semibold">${total.toFixed(2)}</h6>
+              <p className="text-base font-normal text-black">Total (selected):</p>
+              <h6 className="font-semibold">${selectedTotal.toFixed(2)}</h6>
             </div>
             <PrimaryBtn name="Checkout" onClick={handleCheckout} />
           </div>
