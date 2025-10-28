@@ -1,14 +1,13 @@
 import { useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-import useCart from '@/context/useCart';
+import { useCart } from '@/context/useCart';
 
 import Checkbox from '../controls/Checkbox';
 import QuantitySelector from '../controls/QuantitySelector';
 import ButtonRemove from '@/components/controls/ButtonRemove';
 
 export default function ProductCartItem({ cartItem }) {
-  // consume context-only (no prop drilling)
   const { selectedIds, toggleItemSelected, updateQuantity } = useCart();
   const { id, item, quantity } = cartItem;
 
@@ -23,12 +22,20 @@ export default function ProductCartItem({ cartItem }) {
   return (
     <li className="flex cursor-pointer flex-col rounded-lg bg-white px-6 py-4 shadow-md transition-all duration-300 ease-out md:flex-row md:items-center">
       <div className="flex w-2 items-center md:w-[5%]">
-        <Checkbox checked={selected} onChange={() => toggleItemSelected(id)} aria-label={`Select ${item.name}`} />
+        <Checkbox
+          checked={selected}
+          onChange={() => toggleItemSelected(id)}
+          aria-label={`Select ${item.name}`}
+        />
       </div>
 
       <div className="flex md:w-[90%]">
         <div className="md:w-[14%]">
-          <img src={item.images?.main} alt={item.name} className="h-24 w-24 rounded-sm object-cover" />
+          <img
+            src={item.images?.main}
+            alt={item.name}
+            className="h-24 w-24 rounded-sm object-cover"
+          />
         </div>
 
         <div onClick={handleProductSelect} className="flex flex-col justify-center">

@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import useCart from '@/context/useCart';
+import { useCart } from '@/context/useCart';
 import { XMarkIcon } from '@heroicons/react/20/solid';
 
 export default function ButtonRemove({ id }) {

@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import useCart from '@/context/useCart';
+import { useCart } from '@/context/useCart';
 
 import ProductCartItem from '@/components/product/ProductCartItem';
 import Dialog from '@/components/Dialog';
@@ -10,18 +10,8 @@ import Checkbox from '@/components/controls/Checkbox';
 import { PrimaryBtn } from '@/components/controls/Button';
 
 export default function CartPage() {
-  const {
-    cartItems,
-    removeMultiple,
-    updateQuantity,
-    selectedIds,
-    selectAll,
-    unselectAll,
-    toggleItemSelected,
-    total,
-    selectedTotal,
-    clearCart,
-  } = useCart();
+  const { cartItems, removeMultiple, selectedIds, selectAll, unselectAll, selectedTotal } =
+    useCart();
 
   const [activeDialog, setActiveDialog] = useState(null);
   const navigate = useNavigate();
@@ -42,7 +32,6 @@ export default function CartPage() {
 
   const handleDialogClose = () => {
     if (activeDialog === 'success') {
-      // remove selected items and unselect all
       removeMultiple(selectedIds);
       unselectAll();
     }
