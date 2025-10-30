@@ -2,14 +2,17 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 export default function QuantitySelector({ value = 1, onChange }) {
-  const increment = () => onChange(Math.max(1, value + 1));
-  const decrement = () => onChange(Math.max(1, value - 1));
+  const MIN = 1;
+  const MAX = 10;
+
+  const increment = () => onChange(Math.min(MAX, value + 1));
+  const decrement = () => onChange(Math.max(MIN, value - 1));
 
   const handleInputChange = (e) => {
     const newValue = e.target.value;
 
     if (newValue === '' || /^[0-9]+$/.test(newValue)) {
-      const numericValue = newValue === '' ? '' : Math.min(10, Math.max(0, parseInt(newValue)));
+      const numericValue = newValue === '' ? '' : Math.min(MAX, Math.max(MIN, parseInt(newValue)));
       onChange(numericValue);
     }
   };
