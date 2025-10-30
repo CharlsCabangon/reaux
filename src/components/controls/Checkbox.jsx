@@ -2,14 +2,15 @@ import PropTypes from 'prop-types';
 
 import CheckIcon from '@/assets/icons/CheckIcon';
 
-export default function Checkbox({ checked, onChange }) {
+export default function Checkbox({ checked, onChange, label }) {
   return (
     <label className="flex cursor-pointer select-none items-center gap-2.5 text-black">
       <input
         type="checkbox"
         checked={checked}
         onChange={onChange}
-        className="peer sr-only" // sr-only keeps it accessible but visually hidden
+        className="peer sr-only"
+        aria-label={label}
       />
 
       <div

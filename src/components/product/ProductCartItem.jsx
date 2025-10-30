@@ -25,7 +25,7 @@ export default function ProductCartItem({ cartItem }) {
         <Checkbox
           checked={selected}
           onChange={() => toggleItemSelected(id)}
-          aria-label={`Select ${item.name}`}
+          label={`Select ${item.name}`}
         />
       </div>
 

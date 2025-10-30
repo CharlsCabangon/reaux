@@ -5,7 +5,7 @@ export default function Feature({ feature, isLeft = true, headingGap = false, ch
   return (
     <section
       className={`my-14 flex flex-col items-center justify-center gap-10 px-6 md:my-20 md:flex-row ${
-        isLeft ? '' : 'md:flex-row-reverse'
+        isLeft ? 'md:flex-row' : 'md:flex-row-reverse'
       }`}
     >
       <div className="flex w-full justify-center md:w-1/2">
@@ -27,7 +27,7 @@ export default function Feature({ feature, isLeft = true, headingGap = false, ch
             <p>{feature.content}</p>
           )}
         </div>
-        <a>{feature.cta}</a>
+        <a href="#">{feature.cta}</a>
         {children}
       </div>
     </section>
