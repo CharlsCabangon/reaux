@@ -21,7 +21,6 @@ globalThis.matchMedia =
     dispatchEvent: vi.fn(),
   }));
 
-// ensure each test is isolated
 afterEach(() => {
   cleanup();
   vi.restoreAllMocks();
