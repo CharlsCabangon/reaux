@@ -30,10 +30,10 @@ export default function HomePage() {
         </div>
       </section>
       <Banner
-        banner={{ type: 'image', src: getAsset('banner-diamonds-are-forever') }}
+        type="image"
+        banner={getAsset('banner-diamonds-are-forever')}
         imgClassName="object-[0_35%]"
       />
-      {console.log(getAsset('banner-diamonds-are-forever'))}
       <section className="flex w-full justify-center gap-20 pb-16 pt-24">
         <DecorCard img={getAsset('ephemeral')} hasGlare={true} />
         <DecorCard img={getAsset('infinite')} hasGlare={true} />
