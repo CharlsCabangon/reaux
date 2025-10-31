@@ -12,8 +12,8 @@ export default function ButtonAddToCart({ product, quantity = 1 }) {
   return (
     <button
       onClick={handleAdd}
-      aria-label="Add to cart"
-      className="group relative min-w-20 cursor-pointer overflow-hidden rounded-full border-none bg-black px-12 py-3 text-sm text-white shadow-sm transition-all duration-300 ease-out hover:bg-black active:bg-gray"
+      aria-label={`Add ${product.name || 'item'} to cart`}
+      className="group relative min-w-20 cursor-pointer overflow-hidden rounded-full border-none bg-black px-6 py-2 text-xs text-white shadow-sm transition-all duration-300 ease-out hover:bg-black active:bg-gray sm:px-8 sm:py-2.5 sm:text-sm md:px-10 md:py-3 lg:px-12"
     >
       {/* shine layer */}
       <span className="absolute inset-0 -translate-x-full skew-x-[-20deg] bg-gradient-to-r from-transparent via-white/30 to-transparent transition-transform duration-700 ease-out group-hover:translate-x-full"></span>

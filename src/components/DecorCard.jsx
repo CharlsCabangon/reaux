@@ -4,15 +4,20 @@ import Tilt from 'react-parallax-tilt';
 
 export default function DecorCard({ img, link = 'See more', hasGlare = false }) {
   return (
-    <div className="align-center flex w-[24rem] flex-col justify-center text-center">
+    <article className="mx-auto flex w-full max-w-xs flex-col items-center justify-center text-center sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl">
       <Tilt
         tiltEnable={false}
         glareEnable={hasGlare}
         glarePosition="all"
         glareMaxOpacity={0.3}
         glareBorderRadius="0.75rem"
+        className="w-full"
       >
-        <div className="relative h-[33rem] cursor-pointer overflow-hidden rounded-lg bg-gray shadow-md">
+        <div
+          className="relative aspect-[3/4] w-full cursor-pointer overflow-hidden rounded-lg bg-gray shadow-md transition-shadow duration-300 hover:shadow-xl"
+          role="img"
+          aria-label={img.alt}
+        >
           <img
             src={img.image}
             alt={img.alt}
@@ -21,9 +26,11 @@ export default function DecorCard({ img, link = 'See more', hasGlare = false }) 
         </div>
       </Tilt>
 
-      <h4 className="mb-1 mt-5">{img.title}</h4>
-      <a>{link}</a>
-    </div>
+      <h4 className="mb-1 mt-4 sm:mt-5">{img.title}</h4>
+      <a href="#" aria-label={`${link} ${img.title}`}>
+        {link}
+      </a>
+    </article>
   );
 }
 

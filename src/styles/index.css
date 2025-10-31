@@ -4,43 +4,50 @@
 
 @layer base {
   body {
-    @apply bg-off-white font-roboto text-black;
+    @apply bg-off-white font-roboto text-sm text-black sm:text-base;
   }
+
   h1,
   h2,
   h3,
   h4,
   h5,
   h6 {
-    @apply font-sourceSerif;
+    @apply m-0 font-sourceSerif leading-3;
   }
+
   h1 {
-    @apply text-6xl;
+    @apply text-4xl sm:text-5xl md:text-6xl;
   }
+
   h2 {
-    @apply text-5xl;
+    @apply text-3xl sm:text-4xl md:text-5xl;
   }
+
   h3 {
-    @apply text-4xl;
+    @apply text-2xl sm:text-3xl md:text-4xl;
   }
+
   h4 {
-    @apply text-3xl;
+    @apply text-xl sm:text-2xl md:text-3xl;
   }
+
   h5 {
-    @apply text-xl;
+    @apply text-lg sm:text-xl;
   }
+
   h6 {
-    @apply text-base;
+    @apply text-base sm:text-lg;
   }
 
   p {
-    @apply max-w-75ch font-roboto text-base font-light leading-normal tracking-wide;
+    @apply max-w-75ch font-roboto text-sm font-light leading-relaxed tracking-wide sm:text-base;
   }
   a {
-    @apply cursor-pointer font-roboto text-black-muted underline underline-offset-4;
+    @apply cursor-pointer font-roboto text-sm text-black-muted underline underline-offset-4 sm:text-base;
   }
   hr {
-    @apply mx-auto my-14 w-[90%] border-t-2 border-black/75;
+    @apply mx-auto my-8 w-[90%] max-w-screen-2xl border-t-2 border-black/75 sm:my-10 md:my-14;
   }
 }
 

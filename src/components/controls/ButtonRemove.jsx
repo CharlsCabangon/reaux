@@ -11,7 +11,7 @@ export default function ButtonRemove({ id }) {
       className="rounded-full p-1 transition-all duration-500 ease-out hover:bg-off-white-muted/50"
       aria-label="Remove item"
     >
-      <XMarkIcon className="h-5 w-5 text-black" />
+      <XMarkIcon className="h-4 w-4 text-black sm:h-5 sm:w-5" />
     </button>
   );
 }

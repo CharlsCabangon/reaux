@@ -101,7 +101,7 @@ const asset = [
   },
   {
     id: 'reaux-worldwide',
-    title: 'Reaux: The world knows the name',
+    title: 'Reaux: The world | knows the name',
     image: getAssetUrl(SUBFOLDERS.decor, 'reaux-worldwide', EXTENSIONS.image),
     alt: 'Swarovski brand model',
     content: [

@@ -31,7 +31,7 @@ export default function Hero() {
   const handleSlideChange = (index) => setHeroIndex(index);
 
   return (
-    <main className="relative min-h-screen w-full overflow-hidden">
+    <main role="banner" className="relative min-h-screen w-full overflow-hidden">
       <Flickity
         className="h-full w-full"
         elementType="div"
@@ -46,7 +46,6 @@ export default function Hero() {
           <div key={item.id} className="relative h-screen w-full">
             <LazyLoadImage
               src={item.images[0]}
-              //src='public/assets/hero-swarovski-dulcis-collection.png'
               alt={item.alt}
               effect="blur"
               className="h-full w-full object-cover"
@@ -56,26 +55,22 @@ export default function Hero() {
         ))}
       </Flickity>
 
-      <div className="absolute left-32 top-10 z-10 flex h-full flex-col items-start justify-center text-black">
-        <Heading
-          heading={
-            <span className="leading-[0]">
-              <span>A framework</span>
-              <br />
-              <span>for fine design</span>
-            </span>
-          }
-        />
+      <div className="absolute left-4 top-10 z-10 flex h-full flex-col items-start justify-center text-black sm:left-8 md:left-16 lg:left-24 xl:left-32">
+        <Heading heading="A framework | for fine design" />
         <p className="mt-10 w-1/2">
           Crafted through intention and innovation, Reaux defines the new era of fine jewelry.
         </p>
-        <div className="mt-5 flex gap-5">
+        <div className="mt-4 flex flex-col gap-3 sm:mt-5 sm:flex-row sm:gap-5">
           <PrimaryBtn name="Shop now" />
           <SecondaryBtn name="Discover more" />
         </div>
       </div>
 
-      <div className="absolute right-32 top-56 z-10 flex h-full w-1/5 select-none flex-col justify-start text-right text-black">
+      <div
+        aria-live="polite"
+        aria-atomic="true"
+        className="absolute bottom-20 right-4 top-auto z-10 flex w-[calc(100%-2rem)] max-w-xs select-none flex-col justify-start text-right text-black sm:bottom-auto sm:right-8 sm:top-56 sm:w-auto md:right-16 lg:right-24 xl:right-32"
+      >
         <AnimatePresence mode="wait">
           <motion.div
             key={heroIndex}
@@ -84,8 +79,12 @@ export default function Hero() {
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.6, ease: 'easeInOut' }}
           >
-            <h5 className="font-semibold">{hero[heroIndex]?.title}</h5>
-            <p className="mt-3 text-sm leading-relaxed">{hero[heroIndex]?.details}</p>
+            <div className="hidden lg:block">
+              <h5 className="font-semibold">{hero[heroIndex]?.title}</h5>
+              <p className="mt-3 text-sm leading-relaxed">
+                {hero[heroIndex]?.details}
+              </p>
+            </div>
           </motion.div>
         </AnimatePresence>
       </div>

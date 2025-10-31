@@ -77,7 +77,7 @@ export default function CartPage() {
 
           <div className="flex flex-col gap-9 md:flex-row">
             <div>
-              <p className="text-base font-normal text-black">Total (selected):</p>
+              <p className="text-base font-normal text-black">Total:</p>
               <h6 className="font-semibold">${selectedTotal.toFixed(2)}</h6>
             </div>
             <PrimaryBtn name="Checkout" onClick={handleCheckout} />
