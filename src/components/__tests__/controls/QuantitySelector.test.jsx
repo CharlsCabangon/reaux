@@ -23,21 +23,27 @@ describe('QuantitySelector component', () => {
   });
 
   it('increments value when + button is clicked', async () => {
-    renderSelector(2);
+    renderSelector(9);
     const incrementButton = screen.getByRole('button', { name: /increase quantity/i });
 
     await user.click(incrementButton);
+    expect(onChangeMock).toHaveBeenCalledWith(10);
+  });
 
-    expect(onChangeMock).toHaveBeenCalledWith(3);
+  it('does not increment above 10', async () => {
+    renderSelector(10);
+    const incrementButton = screen.getByRole('button', { name: /increase quantity/i });
+
+    await user.click(incrementButton);
+    expect(onChangeMock).toHaveBeenCalledWith(10);
   });
 
   it('decrements value when - button is clicked', async () => {
-    renderSelector(2);
+    renderSelector(5);
     const decrementButton = screen.getByRole('button', { name: /decrease quantity/i });
 
     await user.click(decrementButton);
-
-    expect(onChangeMock).toHaveBeenCalledWith(1);
+    expect(onChangeMock).toHaveBeenCalledWith(4);
   });
 
   it('does not decrement below 1', async () => {
@@ -57,16 +63,6 @@ describe('QuantitySelector component', () => {
 
     expect(onChangeMock).toHaveBeenCalledWith(10);
   });
-
-  // it('allows valid numeric input', async () => {
-  //   renderSelector(1);
-  //   const input = screen.getByRole('textbox');
-
-  //   await user.clear(input);
-  //   await user.type(input, '5');
-
-  //   expect(onChangeMock).toHaveBeenLastCalledWith(5);
-  // });
 
   it('ignores invalid input', async () => {
     renderSelector(1);

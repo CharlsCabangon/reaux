@@ -33,7 +33,8 @@ export default function QuantitySelector({ value = 1, onChange }) {
           inputMode="numeric"
           value={value}
           onChange={handleInputChange}
-          className="w-8 bg-transparent text-center font-roboto text-xs text-black outline-none sm:w-8 sm:text-xs"
+          aria-label="Quantity"
+          className="w-8 bg-transparent text-center font-roboto text-xs text-black outline-none"
         />
 
         <button
