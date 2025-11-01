@@ -19,11 +19,11 @@ export default function QuantitySelector({ value = 1, onChange }) {
 
   return (
     <div>
-      <div className="flex items-center gap-0.5 rounded-full border-2 border-black shadow-sm sm:gap-0.5">
+      <div className="flex items-center gap-0.5 rounded-full border border-black shadow-sm sm:gap-0.5 md:border-2">
         <button
           aria-label="Decrease quantity"
           onClick={decrement}
-          className="rounded-l-full border-r-2 px-1.5 py-0.5 text-xs text-black transition transition-all duration-500 ease-out hover:bg-off-white-muted/50 sm:px-2 sm:text-xs"
+          className="rounded-l-full border-r px-1.5 py-0.5 text-xs text-black transition transition-all duration-500 ease-out hover:bg-off-white-muted/50 sm:px-2 sm:text-xs md:border-r-2"
         >
           −
         </button>
@@ -40,7 +40,7 @@ export default function QuantitySelector({ value = 1, onChange }) {
         <button
           aria-label="Increase quantity"
           onClick={increment}
-          className="rounded-r-full border-l-2 px-1.5 py-0.5 text-xs text-black transition transition-all duration-500 ease-out hover:bg-off-white-muted/50 sm:px-2 sm:text-xs"
+          className="rounded-r-full border-l px-1.5 py-0.5 text-xs text-black transition transition-all duration-500 ease-out hover:bg-off-white-muted/50 sm:px-2 sm:text-xs md:border-l-2"
         >
           +
         </button>
