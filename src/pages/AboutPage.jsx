@@ -14,17 +14,17 @@ export default function AboutPage() {
   }, []);
 
   return (
-    <main className="mt-56 flex flex-col">
-      <div className="flex flex-col items-center gap-12 text-center">
-        <h2>THE STORY OF REAUX</h2>
-        <div className="max-w-[60ch] space-y-3">
+    <main className="mt-32 flex flex-col sm:mt-40 md:mt-48 lg:mt-56" role="main">
+      <header className="flex flex-col items-center gap-8 text-center sm:gap-10 md:gap-12">
+        <h2 id="story-heading">THE STORY OF REAUX</h2>
+        <div className="max-w-[60ch] space-y-3 px-4 sm:px-0">
           <p>
             Reaux was born from a love for clean lines and quiet detail. Each piece is crafted with
             purpose—modern, refined, and timeless.
           </p>
-          <em className="font-light">Rendered perfectly.</em>
+          <em className="block text-sm font-light italic sm:text-base">Rendered perfectly.</em>
         </div>
-      </div>
+      </header>
       <hr />
       <Feature feature={getAsset('vision-rendered')} />
       <hr />
@@ -34,7 +34,7 @@ export default function AboutPage() {
       <hr />
       <CTA>
         <h3>Luxury has its circle. You’re invited.</h3>
-        <p>
+        <p className="max-w-2xl">
           Joining Reaux Club means first access to limited collections, private previews, and
           personal styling insights — all crafted for those who see luxury as an art form.
         </p>

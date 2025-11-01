@@ -21,6 +21,7 @@ export default function ProductPage() {
     return (
       <FallbackPage>
         <h3 className="mb-4">This piece is unavailable.</h3>
+        <p className="mb-6 text-black-muted">The product you're looking for cannot be found.</p>
         <PrimaryBtn name="Back" onClick={() => navigate(-1)} />
       </FallbackPage>
     );
@@ -28,12 +29,21 @@ export default function ProductPage() {
 
   return (
     <>
-      <main className="mt-32 min-h-screen md:p-12">
+      <main
+        className="mt-28 min-h-screen px-4 sm:mt-36 sm:px-6 md:mt-40 md:px-8 lg:mt-52 lg:px-12"
+        role="main"
+        aria-labelledby="product-name"
+      >
         <ProductDetail product={product} />
       </main>
       <hr />
-      <section className="mb-32">
-        <h2 className="text-center">Recommended for you</h2>
+      <section
+        className="mb-20 sm:mb-24 md:mb-28 lg:mb-32"
+        aria-labelledby="recommendations-heading"
+      >
+        <h2 id="recommendations-heading" className="mb-6 text-center">
+          Recommended for you
+        </h2>
         <ProductFeature />
       </section>
     </>

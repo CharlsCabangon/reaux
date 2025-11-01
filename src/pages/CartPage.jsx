@@ -41,8 +41,10 @@ export default function CartPage() {
   if (!cartItems.length) {
     return (
       <FallbackPage>
-        <h3 className="mb-4 font-sourceSerif text-3xl">Your cart is waiting to be adorned</h3>
-        <p className="mb-6 text-black-muted">Explore our pieces and fill your cart.</p>
+        <h3 className="mb-4 font-sourceSerif">Your cart is waiting to be adorned</h3>
+        <p className="mb-6 text-sm text-black-muted sm:text-base">
+          Explore our pieces and fill your cart.
+        </p>
         <div className="flex justify-center">
           <PrimaryBtn name="Go to shop" onClick={handleOpenShopPage} />
         </div>
@@ -51,36 +53,57 @@ export default function CartPage() {
   }
 
   return (
-    <main className="mt-32 min-h-screen p-6 md:p-12">
+    <main
+      className="mt-20 min-h-screen px-4 py-6 sm:mt-24 sm:px-6 md:mt-28 md:px-8 md:py-8 lg:mt-32 lg:px-12 lg:py-12"
+      role="main"
+      aria-labelledby="cart-heading"
+    >
       <div className="mx-auto max-w-6xl">
-        <div className="mb-3 flex items-center justify-between">
-          <h4>Shopping Cart</h4>
-          <div className="flex items-center gap-4">
-            <span className="text-base">
+        <div className="mb-4 flex flex-col gap-3 sm:mb-5 sm:flex-row sm:items-center sm:justify-between md:mb-6">
+          <h4 id="cart-heading">Shopping Cart</h4>
+
+          <div className="flex items-center gap-3 sm:gap-4">
+            <label
+              htmlFor="select-all-checkbox"
+              className="order-2 cursor-pointer text-sm sm:order-1 sm:text-base"
+            >
               {selectedIds.length === cartItems.length ? 'Unselect all' : 'Select all'}
-            </span>
-            <Checkbox
-              checked={selectedIds.length === cartItems.length}
-              onChange={(e) => (e.target.checked ? selectAll() : unselectAll())}
-            />
+            </label>
+            <div className="order-1 sm:order-2">
+              <Checkbox
+                id="select-all-checkbox"
+                checked={selectedIds.length === cartItems.length}
+                onChange={(e) => (e.target.checked ? selectAll() : unselectAll())}
+                label=""
+              />
+            </div>
           </div>
         </div>
 
-        <ul className="space-y-3">
+        <ul className="space-y-3 sm:space-y-4" role="list" aria-label="Shopping cart items">
           {cartItems.map((ci) => (
             <ProductCartItem key={ci.id} cartItem={ci} />
           ))}
         </ul>
 
-        <div className="mt-6 flex justify-end gap-4 md:flex-row md:items-center md:justify-end">
-          <div></div>
-
-          <div className="flex flex-col gap-9 md:flex-row">
-            <div>
-              <p className="text-base font-normal text-black">Total:</p>
-              <h6 className="font-semibold">${selectedTotal.toFixed(2)}</h6>
+        <div
+          className="mt-6 flex flex-col gap-4 pr-3 sm:mt-8 sm:flex-row sm:items-center sm:justify-end"
+          role="region"
+          aria-label="Cart summary"
+        >
+          <div className="flex flex-col items-end gap-2 sm:flex-row sm:items-center sm:gap-8">
+            <div className="text-right">
+              <p className="text-sm font-normal text-black sm:text-base">Total:</p>
+              <p className="text-lg font-semibold sm:text-xl" aria-live="polite" aria-atomic="true">
+                ${selectedTotal.toFixed(2)}
+              </p>
             </div>
-            <PrimaryBtn name="Checkout" onClick={handleCheckout} />
+
+            <PrimaryBtn
+              name="Checkout"
+              onClick={handleCheckout}
+              disabled={selectedIds.length === 0}
+            />
           </div>
         </div>
       </div>
