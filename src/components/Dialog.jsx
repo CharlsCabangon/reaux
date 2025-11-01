@@ -1,9 +1,30 @@
+import { useEffect, useRef } from 'react';
+import PropTypes from 'prop-types';
+
 import { motion, AnimatePresence } from 'framer-motion';
 
 import { PrimaryBtn } from './controls/Button';
 
 export default function Dialog({ isOpen, message, onClose }) {
-  if (!isOpen) return null;
+  const closeButtonRef = useRef(null);
+
+  useEffect(() => {
+    if (isOpen) {
+      closeButtonRef.current?.focus();
+
+      document.body.style.overflow = 'hidden';
+
+      const handleEsc = (e) => {
+        if (e.key === 'Escape') onClose();
+      };
+      document.addEventListener('keydown', handleEsc);
+
+      return () => {
+        document.body.style.overflow = '';
+        document.removeEventListener('keydown', handleEsc);
+      };
+    }
+  }, [isOpen, onClose]);
 
   return (
     <AnimatePresence>
@@ -15,13 +36,19 @@ export default function Dialog({ isOpen, message, onClose }) {
           exit={{ opacity: 0 }}
         >
           <motion.div
-            className="flex h-[30%] w-[25%] flex-col items-center justify-between rounded-md bg-white p-10 pb-7 text-center shadow-xl"
             initial={{ scale: 0.9, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.9, opacity: 0 }}
+            className="fixed z-50 flex w-[80%] max-w-md -translate-x-1/2 flex-col items-center rounded-lg bg-white p-6 shadow-xl sm:p-8"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="dialog-title"
+            aria-describedby="dialog-message"
           >
-            <p className="text-md mb-4 font-normal">{message}</p>
-            <PrimaryBtn name="Okay" onClick={onClose} />
+            <p id="dialog-message" className="text-md mb-10 text-center font-normal">
+              {message}
+            </p>
+            <PrimaryBtn name="Okay" onClick={onClose} ref={closeButtonRef} />
           </motion.div>
         </motion.div>
       )}

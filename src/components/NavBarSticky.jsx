@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import clsx from 'clsx';
 
 import ReauxLogo from '@/assets/logo/ReauxLogo';
@@ -38,7 +38,7 @@ export default function NavBarSticky() {
           <ReauxLogo size="small" />
         </div>
 
-        {/* Center - Desktop Navigation */}
+        {/* desktop nav */}
         <nav className="hidden lg:block" aria-label="Main navigation">
           <ul className="flex justify-center gap-6 xl:gap-8">
             <li>
@@ -70,31 +70,41 @@ export default function NavBarSticky() {
         </div>
       </div>
 
-      {/* Mobile Navigation */}
-      {isMenuOpen && (
-        <nav
-          className="mt-4 border-t border-black/10 pt-4 lg:hidden"
-          aria-label="Mobile navigation"
-        >
-          <ul className="flex flex-col gap-4 text-center">
-            <li>
-              <NavLink to="/" className={navLinkClasses} onClick={() => setIsMenuOpen(false)}>
-                Home
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to="/shop" className={navLinkClasses} onClick={() => setIsMenuOpen(false)}>
-                Shop
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to="/about" className={navLinkClasses} onClick={() => setIsMenuOpen(false)}>
-                About Us
-              </NavLink>
-            </li>
-          </ul>
-        </nav>
-      )}
+      {/* mobile nav */}
+      <AnimatePresence>
+        {isMenuOpen && (
+          <motion.nav
+            initial={{ opacity: 0, scaleY: 0.8, originY: 0 }}
+            animate={{ opacity: 1, scaleY: 1, originY: 0 }}
+            exit={{ opacity: 0, scaleY: 0.8, originY: 0 }}
+            transition={{ duration: 0.25, ease: 'easeOut' }}
+            className="mt-4 border-t border-off-white/50 pt-4 lg:hidden"
+            aria-label="Mobile navigation"
+          >
+            <ul className="flex flex-col gap-4 text-center">
+              <li>
+                <NavLink to="/" className={navLinkClasses} onClick={() => setIsMenuOpen(false)}>
+                  Home
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to="/shop" className={navLinkClasses} onClick={() => setIsMenuOpen(false)}>
+                  Shop
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  to="/about"
+                  className={navLinkClasses}
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  About Us
+                </NavLink>
+              </li>
+            </ul>
+          </motion.nav>
+        )}
+      </AnimatePresence>
     </motion.div>
   );
 }

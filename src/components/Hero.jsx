@@ -55,14 +55,27 @@ export default function Hero() {
         ))}
       </Flickity>
 
-      <div className="absolute left-4 top-10 z-10 flex h-full flex-col items-start justify-center text-black sm:left-8 md:left-16 lg:left-24 xl:left-32">
-        <Heading heading="A framework | for fine design" />
-        <p className="mt-10 w-1/2">
+      <div
+        className="pointer-events-none absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-[#000]/80 via-[#000]/60 to-transparent md:hidden"
+        aria-hidden="true"
+      />
+
+      <div className="absolute inset-x-0 bottom-16 z-10 flex flex-col items-center text-center text-black md:bottom-1/3 md:left-16 md:top-1/2 md:w-1/2 md:-translate-y-1/2 md:items-start md:text-left lg:left-24 xl:left-32">
+        <Heading
+          heading="A framework | for fine design"
+          leading={3}
+          className="text-white md:text-black"
+        />
+        <p className="mt-8 w-[35ch] text-white md:mt-10 md:text-black">
           Crafted through intention and innovation, Reaux defines the new era of fine jewelry.
         </p>
-        <div className="mt-4 flex flex-col gap-3 sm:mt-5 sm:flex-row sm:gap-5">
+        <div className="hidden md:mt-4 md:flex md:flex-row md:gap-5">
           <PrimaryBtn name="Shop now" />
           <SecondaryBtn name="Discover more" />
+        </div>
+        <div className="mt-8 flex flex-col gap-3 sm:flex-row md:hidden">
+          <PrimaryBtn name="Shop now" color="white" />
+          <SecondaryBtn name="Discover more" color="white" />
         </div>
       </div>
 
@@ -81,9 +94,7 @@ export default function Hero() {
           >
             <div className="hidden lg:block">
               <h5 className="font-semibold">{hero[heroIndex]?.title}</h5>
-              <p className="mt-3 text-sm leading-relaxed">
-                {hero[heroIndex]?.details}
-              </p>
+              <p className="mt-3 text-sm leading-relaxed">{hero[heroIndex]?.details}</p>
             </div>
           </motion.div>
         </AnimatePresence>

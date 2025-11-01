@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
+import clsx from 'clsx';
 
-export default function Heading({ heading, level = 'h1' }) {
+export default function Heading({ heading, level = 'h1', leading = 'none', className = '' }) {
   const Tag = level;
   const lines = typeof heading === 'string' ? heading.split('|') : [heading];
 
@@ -13,14 +14,26 @@ export default function Heading({ heading, level = 'h1' }) {
     h6: 'text-base sm:text-lg',
   };
 
+  const leadingClasses = {
+    0: 'leading-[0]',
+    3: 'leading-3',
+    none: 'none',
+  };
+
   return (
     <Tag
-      className={`m-0 font-sourceSerif leading-3 first-letter:font-pinyon first-letter:text-6xl sm:first-letter:text-7xl md:first-letter:text-8xl lg:first-letter:text-9xl ${sizeClasses[level]}`}
+      className={clsx(
+        'm-0 font-sourceSerif leading-none',
+        'first-letter:font-pinyon first-letter:text-6xl',
+        'sm:first-letter:text-7xl md:first-letter:text-8xl lg:first-letter:text-9xl',
+        className,
+        sizeClasses[level]
+      )}
       role="heading"
       aria-level={level.slice(1)}
     >
       {lines.map((line, idx) => (
-        <span key={idx} className="block leading-3">
+        <span key={idx} className={clsx('block', leadingClasses[leading])}>
           {line}
         </span>
       ))}
@@ -31,4 +44,5 @@ export default function Heading({ heading, level = 'h1' }) {
 Heading.propTypes = {
   heading: PropTypes.string.isRequired,
   level: PropTypes.oneOf(['h1', 'h2', 'h3', 'h4', 'h5', 'h6']),
+  leading: PropTypes.oneOf([0, 3, 'none']),
 };

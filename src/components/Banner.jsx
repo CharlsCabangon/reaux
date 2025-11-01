@@ -26,7 +26,7 @@ export default function Banner({ type, banner, imgClassName, hasCTA = true }) {
           <img
             src={banner.image}
             alt={banner.alt || banner.title}
-            className={`absolute inset-0 h-full w-full object-cover ${imgClassName || ''}`}
+            className={`absolute inset-0 h-full w-full object-cover object-center ${imgClassName || ''}`}
             loading="lazy"
           />
         )}

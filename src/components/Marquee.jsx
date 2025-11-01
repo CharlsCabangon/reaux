@@ -12,7 +12,7 @@ export default function PressMarquee() {
         {logos.map((logo, index) => (
           <div
             key={logo.id || index}
-            className="mx-12 flex items-center sm:mx-16 md:mx-20 lg:mx-24"
+            className="mx-10 flex items-center sm:mx-16 md:mx-20 lg:mx-24"
           >
             <img
               src={logo.svg}
