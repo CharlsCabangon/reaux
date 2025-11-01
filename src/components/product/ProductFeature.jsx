@@ -31,7 +31,10 @@ export default function ProductFeature({ count = 5 }) {
   if (products.length === 0) return null;
 
   return (
-    <section className="w-full overflow-hidden py-8">
+    <section
+      className="w-full overflow-hidden py-6 sm:py-8 md:py-10"
+      aria-label="Featured products"
+    >
       <Flickity
         className="carousel"
         elementType="div"
@@ -40,7 +43,7 @@ export default function ProductFeature({ count = 5 }) {
         static
       >
         {products.map((item) => (
-          <div key={item.id} className="mr-4">
+          <div key={item.id} className="mr-3 h-[60vh] sm:mr-4">
             <ProductCard item={item} />
           </div>
         ))}

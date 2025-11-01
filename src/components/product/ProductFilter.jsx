@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import FilterDropdown from './FilterDropdown';
 import useProductFilterOptions from '@/hooks/useProductFilterOptions';
 import { capitalize } from '@/utils/capitalizeText';
-import ButtonRemove from '../controls/ButtonRemove';
 
 export default function ProductFilter({
   products = [],
@@ -22,8 +21,12 @@ export default function ProductFilter({
   };
 
   return (
-    <section className="flex w-full flex-wrap justify-between bg-white px-24 pb-4 pt-6 shadow-sm">
-      <div className="flex items-center gap-5">
+    <section
+      role="search"
+      aria-label="Product filters"
+      className="flex w-full flex-col gap-4 bg-white px-4 py-4 shadow-sm sm:flex-row sm:flex-wrap sm:items-center sm:justify-between sm:px-6 sm:py-5 md:px-8 lg:px-16 lg:py-6 xl:px-24"
+    >
+      <div className="flex flex-wrap items-center justify-center gap-2 sm:justify-start sm:gap-3 md:gap-4 lg:gap-5">
         <FilterDropdown
           label="Shop by Category"
           options={categories}
@@ -37,11 +40,13 @@ export default function ProductFilter({
           value={collection}
           onChange={handleChange('collection')}
         />
-        <FilterDropdown label="Lab Diamonds" options={null} />
-        <FilterDropdown label="More at Reaux" options={null} />
+        <div className="hidden lg:flex lg:gap-5">
+          <FilterDropdown label="Lab Diamonds" options={null} />
+          <FilterDropdown label="More at Reaux" options={null} />
+        </div>
       </div>
 
-      <div className="relative flex items-center gap-5">
+      <div className="flex items-center justify-center gap-2 sm:justify-start sm:gap-3 md:gap-4 lg:gap-5">
         <FilterDropdown
           label="Sort By"
           options={[
@@ -54,7 +59,7 @@ export default function ProductFilter({
           value={sort}
           onChange={handleChange('sort')}
         />
-        <div onClick={onFilterReset}>
+        <div onClick={onFilterReset} className="cursor-pointer" aria-label="Clear all filters">
           <FilterDropdown label="Clear" options={null} />
         </div>
       </div>

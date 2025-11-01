@@ -20,8 +20,8 @@ export default function ProductCartItem({ cartItem }) {
   const selected = selectedIds.includes(id);
 
   return (
-    <li className="flex cursor-pointer flex-col rounded-lg bg-white px-6 py-4 shadow-md transition-all duration-300 ease-out md:flex-row md:items-center">
-      <div className="flex w-2 items-center md:w-[5%]">
+    <li className="flex flex-col gap-3 rounded-lg bg-white px-3 py-3 shadow-md transition-all duration-300 ease-out sm:gap-4 sm:px-4 sm:py-4 md:flex-row md:items-center md:px-6">
+      <div className="flex items-center md:w-[5%]">
         <Checkbox
           checked={selected}
           onChange={() => toggleItemSelected(id)}
@@ -29,23 +29,36 @@ export default function ProductCartItem({ cartItem }) {
         />
       </div>
 
-      <div className="flex md:w-[90%]">
-        <div className="md:w-[14%]">
+      <div className="flex flex-1 gap-3 sm:gap-4 md:w-[90%]">
+        <div className="flex-shrink-0">
           <img
             src={item.images?.main}
             alt={item.name}
-            className="h-24 w-24 rounded-sm object-cover"
+            className="h-20 w-20 rounded-sm object-cover sm:h-24 sm:w-24"
           />
         </div>
 
-        <div onClick={handleProductSelect} className="flex flex-col justify-center">
-          <p className="font-sourceSerif text-base font-normal">{item.name}</p>
-          <p className="text-sm text-black-muted">{item.specs}</p>
-          <p className="font-sourceSerif text-xl font-semibold">{item.price}</p>
+        <div
+          onClick={handleProductSelect}
+          className="flex flex-1 cursor-pointer flex-col justify-center"
+          role="button"
+          tabIndex={0}
+          onKeyDown={(e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault();
+              handleProductSelect();
+            }
+          }}
+        >
+          <p className="font-sourceSerif text-sm font-normal sm:text-base">{item.name}</p>
+          <p className="text-xs text-black-muted sm:text-sm">{item.specs}</p>
+          <p className="font-sourceSerif text-base font-semibold sm:text-lg md:text-xl">
+            {item.price}
+          </p>
         </div>
       </div>
 
-      <div className="flex items-center gap-5">
+      <div className="flex items-center justify-between gap-3 sm:gap-4 md:justify-end md:gap-5">
         <QuantitySelector value={quantity} onChange={(val) => updateQuantity(id, val)} />
         <ButtonRemove id={id} />
       </div>
