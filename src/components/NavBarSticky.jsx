@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 
@@ -26,12 +27,11 @@ export default function NavBarSticky() {
     );
 
   return (
-    <motion.div
+    <motion.header
       className="fixed left-0 top-0 z-50 w-full bg-off-white/65 px-4 pb-3 pt-4 shadow-md ring-1 ring-white backdrop-blur-sm transition-all duration-500 sm:px-6 md:px-8 lg:px-10 lg:pb-4 lg:pt-6"
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       exit={{ y: -100, opacity: 0 }}
-      role="banner"
     >
       <div className="flex items-center justify-between">
         <div>
@@ -105,6 +105,6 @@ export default function NavBarSticky() {
           </motion.nav>
         )}
       </AnimatePresence>
-    </motion.div>
+    </motion.header>
   );
 }

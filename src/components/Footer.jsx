@@ -1,6 +1,9 @@
+/* eslint-disable no-unused-vars */
 import { useState } from 'react';
+import PropTypes from 'prop-types';
 
 import { motion, AnimatePresence } from 'framer-motion';
+import clsx from 'clsx';
 import { SocialIcon } from 'react-social-icons';
 import { ChevronDownIcon } from '@heroicons/react/20/solid';
 
@@ -32,7 +35,10 @@ function FooterSection({ section, isMobile }) {
       >
         <h6>{section.title}</h6>
         <ChevronDownIcon
-          className={`h-5 w-5 text-white transition-transform duration-300 ${isOpen ? 'rotate-180' : ''} `}
+          className={clsx(
+            'h-5 w-5 text-white transition-transform duration-300',
+            isOpen ? 'rotate-180' : ''
+          )}
           aria-hidden="true"
         />
       </button>
@@ -157,3 +163,12 @@ export default function Footer() {
     </footer>
   );
 }
+
+FooterSection.propTypes = {
+  section: PropTypes.shape({
+    id: PropTypes.string,
+    title: PropTypes.string,
+    links: PropTypes.arrayOf(PropTypes.string),
+  }).isRequired,
+  isMobile: PropTypes.bool.isRequired,
+};

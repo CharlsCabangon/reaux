@@ -1,5 +1,5 @@
 import { useInView } from 'react-intersection-observer';
-import { motion, AnimatePresence } from 'framer-motion';
+import { AnimatePresence } from 'framer-motion';
 
 import NavBar from './NavBar';
 import NavBarSticky from './NavBarSticky';

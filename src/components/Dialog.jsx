@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 
@@ -55,3 +56,9 @@ export default function Dialog({ isOpen, message, onClose }) {
     </AnimatePresence>
   );
 }
+
+Dialog.propTypes = {
+  isOpen: PropTypes.bool.isRequired,
+  message: PropTypes.string.isRequired,
+  onClose: PropTypes.func.isRequired,
+};

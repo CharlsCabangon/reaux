@@ -43,7 +43,7 @@ export default function HomePage() {
       >
         <h2 id="collection-heading">Shop the collection</h2>
         <div className="w-full md:hidden">
-          <Flickity className="carousel" elementType="list" options={flickityOptions} static>
+          <Flickity className="carousel" elementType="div" options={flickityOptions} static>
             <div className="mx-2 w-3/4 sm:w-2/3 md:w-1/2">
               <DecorCard img={getAsset('infinite-bloom')} />
             </div>
@@ -58,7 +58,7 @@ export default function HomePage() {
 
         <div
           className="hidden w-full max-w-7xl md:grid md:grid-cols-3 md:gap-6 lg:gap-8"
-          role="list"
+          role="listitem"
           aria-label="Featured collection items"
         >
           <DecorCard img={getAsset('infinite-bloom')} />
@@ -69,14 +69,14 @@ export default function HomePage() {
       <Banner
         type="image"
         banner={getAsset('banner-diamonds-are-forever')}
-        imgClassName="object-[0_35%]"
+        className="object-center lg:object-[0_35%]"
       />
       <section
         className="flex w-full flex-col items-center gap-8 py-16 sm:gap-10 sm:py-20 md:gap-12 md:px-8 lg:py-24"
         aria-label="Collection items"
       >
         <div className="w-full md:hidden">
-          <Flickity className="carousel" elementType="list" options={flickityOptions} static>
+          <Flickity className="carousel" elementType="div" options={flickityOptions} static>
             <div className="mx-2 w-3/4 sm:w-2/3 md:w-1/2">
               <DecorCard img={getAsset('ephemeral')} hasGlare={true} />
             </div>
@@ -90,7 +90,7 @@ export default function HomePage() {
         </div>
         <div
           className="hidden w-full max-w-7xl md:grid md:grid-cols-3 md:gap-6 lg:gap-8"
-          role="list"
+          role="listitem"
         >
           <DecorCard img={getAsset('ephemeral')} hasGlare={true} />
           <DecorCard img={getAsset('infinite')} hasGlare={true} />

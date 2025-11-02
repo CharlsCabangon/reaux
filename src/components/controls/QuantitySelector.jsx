@@ -11,7 +11,7 @@ export default function QuantitySelector({ value = 1, onChange }) {
   const handleInputChange = (e) => {
     const newValue = e.target.value;
 
-    if (newValue === '' || /^[0-9]+$/.test(newValue)) {
+    if (newValue === '' || /^\d+$/.test(newValue)) {
       const numericValue = newValue === '' ? '' : Math.min(MAX, Math.max(MIN, parseInt(newValue)));
       onChange(numericValue);
     }
@@ -23,7 +23,7 @@ export default function QuantitySelector({ value = 1, onChange }) {
         <button
           aria-label="Decrease quantity"
           onClick={decrement}
-          className="rounded-l-full border-r px-1.5 py-0.5 text-xs text-black transition transition-all duration-500 ease-out hover:bg-off-white-muted/50 sm:px-2 sm:text-xs md:border-r-2"
+          className="rounded-l-full border-r px-1.5 py-0.5 text-xs text-black transition-colors duration-500 ease-out hover:bg-off-white-muted/50 sm:px-2 sm:text-xs md:border-r-2"
         >
           −
         </button>
@@ -40,7 +40,7 @@ export default function QuantitySelector({ value = 1, onChange }) {
         <button
           aria-label="Increase quantity"
           onClick={increment}
-          className="rounded-r-full border-l px-1.5 py-0.5 text-xs text-black transition transition-all duration-500 ease-out hover:bg-off-white-muted/50 sm:px-2 sm:text-xs md:border-l-2"
+          className="rounded-r-full border-l px-1.5 py-0.5 text-xs text-black transition-colors duration-500 ease-out hover:bg-off-white-muted/50 sm:px-2 sm:text-xs md:border-l-2"
         >
           +
         </button>

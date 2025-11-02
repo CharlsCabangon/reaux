@@ -43,7 +43,7 @@ export default defineConfig([
         ...globals.node,
         ...globals.es2021,
         ...vitest.environments.env.globals,
-      }
+      },
       parserOptions: { ecmaFeatures: { jsx: true } },
     },
     settings: {

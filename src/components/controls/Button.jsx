@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types';
 
 import clsx from 'clsx';
-import { color } from 'framer-motion';
 
 export function PrimaryBtn({ name, type = 'button', color = 'black', onClick }) {
   const colorClasses = {

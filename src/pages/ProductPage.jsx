@@ -15,7 +15,7 @@ export default function ProductPage() {
 
   useEffect(() => {
     document.title = `${product.name} | Reaux Online Store`;
-  }, [product.id]);
+  }, [product.id, product.name]);
 
   if (!product) {
     return (

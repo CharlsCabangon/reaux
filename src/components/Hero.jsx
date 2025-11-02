@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { useState } from 'react';
 
 import Flickity from 'react-flickity-component';
@@ -60,7 +61,7 @@ export default function Hero() {
         aria-hidden="true"
       />
 
-      <div className="absolute inset-x-0 bottom-16 z-10 flex flex-col items-center text-center text-black md:bottom-1/3 md:left-16 md:top-1/2 md:w-1/2 md:-translate-y-1/2 md:items-start md:text-left lg:left-24 xl:left-32">
+      <div className="absolute inset-x-0 bottom-10 z-10 flex flex-col items-center text-center text-black md:bottom-1/3 md:left-16 md:top-1/2 md:w-1/2 md:-translate-y-1/2 md:items-start md:text-left lg:left-24 xl:left-32">
         <Heading
           heading="A framework | for fine design"
           leading={3}
