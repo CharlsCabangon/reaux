@@ -51,6 +51,35 @@
   }
 }
 
+@layer utilities {
+  /* global scrollbar style */
+  ::-webkit-scrollbar {
+    @apply w-2 bg-transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply rounded-full bg-black-muted transition-colors duration-200;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-black/75;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+
+  .component-scrollbar::-webkit-scrollbar {
+    @apply w-1;
+  }
+  .component-scrollbar::-webkit-scrollbar-thumb {
+    @apply rounded-full bg-gray;
+  }
+  .component-scrollbar::-webkit-scrollbar-thumb:hover {
+    @apply rounded-full bg-black-muted;
+  }
+}
+
 .flickity-prev-next-button {
   @apply bg-white text-black opacity-60 ring-0 transition-opacity duration-200 !important;
 }
