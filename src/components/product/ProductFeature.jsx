@@ -35,7 +35,7 @@ export default function ProductFeature({ count = 5 }) {
 
   return (
     <section
-      className="w-full overflow-hidden py-6 sm:py-8 md:py-10"
+      className="w-full overflow-hidden py-5 sm:py-6 md:py-8"
       aria-label="Featured products"
     >
       <FlickityComponent
@@ -46,7 +46,7 @@ export default function ProductFeature({ count = 5 }) {
         static
       >
         {products.map((item) => (
-          <div key={item.id} className="mr-3 flex h-auto items-center justify-center sm:mr-4">
+          <div key={item.id} className="mr-3 flex h-[70vh] items-center justify-center sm:mr-4">
             <ProductCard item={item} />
           </div>
         ))}
