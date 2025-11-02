@@ -8,9 +8,9 @@ export const hero = [
     id: 'gema-collection',
     title: 'Gema Collection',
     images: [
-      `${BLOB_URL}/${FOLDER}/hero-swarovski-gema-collection.${EXT}`, // desktop
-      `${BLOB_URL}/${FOLDER}/hero-swarovski-gema-collection-1500x900.${EXT}`, // tablet
-      `${BLOB_URL}/${FOLDER}/hero-swarovski-gema-collection-360x640.${EXT}`, // mobile
+      `${BLOB_URL}/${FOLDER}/swarovski-gema-collection.${EXT}`, // desktop
+      `${BLOB_URL}/${FOLDER}/swarovski-gema-collection-1500x900.${EXT}`, // tablet
+      `${BLOB_URL}/${FOLDER}/swarovski-gema-collection-360x640.${EXT}`, // mobile
     ],
     alt: 'Ariana Grande in swarovski gema 2025 collection',
     details:
@@ -20,9 +20,9 @@ export const hero = [
     id: 'sunglasses-collection',
     title: 'Sunglasses Collection',
     images: [
-      `${BLOB_URL}/${FOLDER}/hero-swarovski-sunglasses-collection.${EXT}`, // desktop
-      `${BLOB_URL}/${FOLDER}/hero-swarovski-sunglasses-collection-1500x900.${EXT}`, // tablet
-      `${BLOB_URL}/${FOLDER}/hero-swarovski-sunglasses-collection-360x640.${EXT}`, // mobile
+      `${BLOB_URL}/${FOLDER}/swarovski-sunglasses-collection.${EXT}`, // desktop
+      `${BLOB_URL}/${FOLDER}/swarovski-sunglasses-collection-1500x900.${EXT}`, // tablet
+      `${BLOB_URL}/${FOLDER}/swarovski-sunglasses-collection-360x640.${EXT}`, // mobile
     ],
     alt: 'A model in swarovski sunglasses collection',
     details:
@@ -32,9 +32,9 @@ export const hero = [
     id: 'dulcis-collection',
     title: 'Dulcis Collection',
     images: [
-      `${BLOB_URL}/${FOLDER}/hero-swarovski-dulcis-collection.${EXT}`, // desktop
-      `${BLOB_URL}/${FOLDER}/hero-swarovski-dulcis-collection-1500x900.${EXT}`, // tablet
-      `${BLOB_URL}/${FOLDER}/hero-swarovski-dulcis-collection-360x640.${EXT}`, // mobile
+      `${BLOB_URL}/${FOLDER}/swarovski-dulcis-collection.${EXT}`, // desktop
+      `${BLOB_URL}/${FOLDER}/swarovski-dulcis-collection-1500x900.${EXT}`, // tablet
+      `${BLOB_URL}/${FOLDER}/swarovski-dulcis-collection-360x640.${EXT}`, // mobile
     ],
     alt: 'A model in swarovski dulcis 2025 collection',
     details:
@@ -44,9 +44,9 @@ export const hero = [
     id: 'millenia-collection',
     title: 'Millenia Collection',
     images: [
-      `${BLOB_URL}/${FOLDER}/hero-swarovski-millenia-collection.${EXT}`, // desktop
-      `${BLOB_URL}/${FOLDER}/hero-swarovski-millenia-collection-1500x900.${EXT}`, // tablet
-      `${BLOB_URL}/${FOLDER}/hero-swarovski-millenia-collection-360x640.${EXT}`, // mobile
+      `${BLOB_URL}/${FOLDER}/swarovski-millenia-collection.${EXT}`, // desktop
+      `${BLOB_URL}/${FOLDER}/swarovski-millenia-collection-1500x900.${EXT}`, // tablet
+      `${BLOB_URL}/${FOLDER}/swarovski-millenia-collection-360x640.${EXT}`, // mobile
     ],
     alt: 'Ariana Grande in swarovski millenia 2025 collection',
     details:
