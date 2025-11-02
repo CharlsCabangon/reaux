@@ -1,9 +1,8 @@
 /* eslint-disable no-unused-vars */
 import { useState, useEffect, useMemo } from 'react';
 
-import Flickity from 'react-flickity-component';
+import FlickityComponent from 'react-flickity-component';
 import 'flickity/dist/flickity.min.css';
-import 'flickity-fade';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 import { motion, AnimatePresence } from 'framer-motion';
 import clsx from 'clsx';
@@ -46,7 +45,7 @@ export default function Hero() {
 
   return (
     <main role="banner" className="relative min-h-screen w-full overflow-hidden">
-      <Flickity
+      <FlickityComponent
         className="h-full w-full"
         elementType="div"
         options={flickityOptions}
@@ -82,7 +81,7 @@ export default function Hero() {
             </picture>
           </div>
         ))}
-      </Flickity>
+      </FlickityComponent>
 
       <div
         className="pointer-events-none absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-[#000]/80 via-[#000]/60 to-transparent md:hidden"
