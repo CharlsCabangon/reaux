@@ -1,7 +1,8 @@
 # REAUX
 
 ---
-*A framework for fine design... [visit Reaux]()*
+
+_A framework for fine design... [visit Reaux](https://reaux.vercel.app/)_
 
 ---
 
