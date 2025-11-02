@@ -1,6 +1,6 @@
 import { useState, useEffect, useMemo } from 'react';
 import PropTypes from 'prop-types';
-import Flickity from 'react-flickity-component';
+import FlickityComponent from 'react-flickity-component';
 import 'flickity/dist/flickity.min.css';
 
 import ProductCard from './ProductCard';
@@ -38,7 +38,7 @@ export default function ProductFeature({ count = 5 }) {
       className="w-full overflow-hidden py-6 sm:py-8 md:py-10"
       aria-label="Featured products"
     >
-      <Flickity
+      <FlickityComponent
         className="carousel"
         elementType="div"
         options={flickityOptions}
@@ -46,11 +46,11 @@ export default function ProductFeature({ count = 5 }) {
         static
       >
         {products.map((item) => (
-          <div key={item.id} className="mr-3 h-[60vh] sm:mr-4">
+          <div key={item.id} className="mr-3 flex h-auto items-center justify-center sm:mr-4">
             <ProductCard item={item} />
           </div>
         ))}
-      </Flickity>
+      </FlickityComponent>
     </section>
   );
 }

@@ -58,15 +58,15 @@
   }
 
   ::-webkit-scrollbar-thumb {
-    @apply rounded-full bg-black-muted transition-colors duration-200;
+    @apply rounded-full bg-gray transition-colors duration-200;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    @apply bg-black/75;
+    @apply bg-light-gray;
   }
 
   ::-webkit-scrollbar-track {
-    @apply bg-transparent;
+    @apply bg-black;
   }
 
   .component-scrollbar::-webkit-scrollbar {
@@ -78,6 +78,9 @@
   .component-scrollbar::-webkit-scrollbar-thumb:hover {
     @apply rounded-full bg-black-muted;
   }
+  .component-scrollbar::-webkit-scrollbar-track {
+    @apply rounded-full bg-transparent;
+  }
 }
 
 .flickity-prev-next-button {
@@ -86,4 +89,8 @@
 
 .flickity-prev-next-button:hover {
   @apply opacity-100 !important;
+}
+
+.flickity-viewport {
+  overflow: visible !important;
 }

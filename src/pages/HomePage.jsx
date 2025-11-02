@@ -1,6 +1,6 @@
 import { useEffect, useMemo } from 'react';
 
-import Flickity from 'react-flickity-component';
+import FlickityComponent from 'react-flickity-component';
 import 'flickity/dist/flickity.min.css';
 
 import Hero from '@/components/Hero';
@@ -46,7 +46,12 @@ export default function HomePage() {
       >
         <h2 id="collection-heading">Shop the collection</h2>
         <div className="w-full md:hidden">
-          <Flickity className="carousel" elementType="div" options={flickityOptions} static>
+          <FlickityComponent
+            className="carousel"
+            elementType="div"
+            options={flickityOptions}
+            static
+          >
             <div className="mx-2 w-3/4 sm:w-2/3 md:w-1/2">
               <DecorCard img={getAsset('infinite-bloom')} />
             </div>
@@ -56,7 +61,7 @@ export default function HomePage() {
             <div className="mx-2 w-3/4 sm:w-2/3 md:w-1/2">
               <DecorCard img={getAsset('reaux-vision')} />
             </div>
-          </Flickity>
+          </FlickityComponent>
         </div>
 
         <div
@@ -79,7 +84,12 @@ export default function HomePage() {
         aria-label="Collection items"
       >
         <div className="w-full md:hidden">
-          <Flickity className="carousel" elementType="div" options={flickityOptions} static>
+          <FlickityComponent
+            className="carousel"
+            elementType="div"
+            options={flickityOptions}
+            static
+          >
             <div className="mx-2 w-3/4 sm:w-2/3 md:w-1/2">
               <DecorCard img={getAsset('ephemeral')} hasGlare={true} />
             </div>
@@ -89,7 +99,7 @@ export default function HomePage() {
             <div className="mx-2 w-3/4 sm:w-2/3 md:w-1/2">
               <DecorCard img={getAsset('cascade')} hasGlare={true} />
             </div>
-          </Flickity>
+          </FlickityComponent>
         </div>
         <div
           className="hidden w-full max-w-7xl md:grid md:grid-cols-3 md:gap-6 lg:gap-8"
