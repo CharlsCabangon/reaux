@@ -27,7 +27,7 @@ export default function Feature({ feature, isLeft = true, headingGap = false, ch
         className={clsx(
           'flex w-full flex-col gap-3 text-center',
           'md:w-1/2 md:text-left',
-          isLeft ? 'md:pl-4 lg:pl-8 xl:pl-10' : 'md:pl-6 lg:pl-10 xl:pl-14'
+          isLeft ? 'md:pl-4 lg:pl-8 xl:pl-10' : 'md:pl-6 lg:pl-10 xl:pl-14 2xl:pl-28'
         )}
       >
         <Heading heading={feature.title} />

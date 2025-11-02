@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import PropTypes from 'prop-types';
 import Flickity from 'react-flickity-component';
 import 'flickity/dist/flickity.min.css';
@@ -15,18 +15,21 @@ export default function ProductFeature({ count = 5 }) {
     setProducts(items);
   }, [count]);
 
-  const flickityOptions = {
-    freeScroll: true,
-    wrapAround: true,
-    cellAlign: 'center',
-    contain: true,
-    draggable: true,
-    pageDots: false,
-    prevNextButtons: true,
-    imagesLoaded: true,
-    selectedAttraction: 0.015,
-    friction: 0.25,
-  };
+  const flickityOptions = useMemo(
+    () => ({
+      freeScroll: true,
+      wrapAround: true,
+      cellAlign: 'center',
+      contain: true,
+      draggable: true,
+      pageDots: false,
+      prevNextButtons: true,
+      imagesLoaded: true,
+      selectedAttraction: 0.015,
+      friction: 0.25,
+    }),
+    []
+  );
 
   if (products.length === 0) return null;
 

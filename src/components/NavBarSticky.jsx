@@ -13,10 +13,6 @@ import ButtonMenu from './controls/ButtonMenu';
 export default function NavBarSticky() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const handleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
-
   const navLinkClasses = ({ isActive }) =>
     clsx(
       'relative cursor-pointer font-sourceSerif text-sm sm:text-base text-black no-underline',
@@ -65,7 +61,7 @@ export default function NavBarSticky() {
           </div>
           <ButtonCart />
           <div className="lg:hidden">
-            <ButtonMenu onClick={() => handleMenu()} isOpen={isMenuOpen} />
+            <ButtonMenu onClick={() => setIsMenuOpen(!isMenuOpen)} isOpen={isMenuOpen} />
           </div>
         </div>
       </div>

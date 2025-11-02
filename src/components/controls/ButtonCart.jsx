@@ -15,7 +15,7 @@ export default function ButtonCart() {
     <button
       onClick={handleCartSelect}
       aria-label="Open cart"
-      className="relative flex transition-transform duration-300 ease-out hover:scale-105"
+      className="relative flex transition-opacity duration-300 ease-out hover:opacity-80"
     >
       <CartIcon />
       {totalItems > 0 && (

@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useMemo } from 'react';
 
 import Flickity from 'react-flickity-component';
 import 'flickity/dist/flickity.min.css';
@@ -18,18 +18,21 @@ export default function HomePage() {
     document.title = 'Reaux Online Store';
   }, []);
 
-  const flickityOptions = {
-    freeScroll: true,
-    wrapAround: true,
-    cellAlign: 'center',
-    contain: true,
-    draggable: true,
-    pageDots: false,
-    prevNextButtons: false,
-    imagesLoaded: true,
-    selectedAttraction: 0.015,
-    friction: 0.25,
-  };
+  const flickityOptions = useMemo(
+    () => ({
+      freeScroll: true,
+      wrapAround: true,
+      cellAlign: 'center',
+      contain: true,
+      draggable: true,
+      pageDots: false,
+      prevNextButtons: false,
+      imagesLoaded: true,
+      selectedAttraction: 0.015,
+      friction: 0.25,
+    }),
+    []
+  );
 
   return (
     <div>

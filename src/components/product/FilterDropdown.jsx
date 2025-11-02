@@ -73,9 +73,21 @@ export default function FilterDropdown({ label, options = [], value, onChange, c
             animate={{ opacity: 1, scaleY: 1, originY: 0 }}
             exit={{ opacity: 0, scaleY: 0.8, originY: 0 }}
             transition={{ duration: 0.25, ease: 'easeOut' }}
+            id={`${label}-listbox`}
             role="listbox"
+            tabIndex={0}
             aria-label={`${label} options`}
-            className="absolute left-1/2 top-full z-10 mt-1 max-h-72 w-[200%] -translate-x-1/2 overflow-auto rounded-md bg-white tracking-wide shadow-lg ring-1 ring-off-white sm:w-[150%]"
+            aria-activedescendant={value}
+            className={clsx(
+              'absolute left-1/2 top-full z-10 mt-1 max-h-72 w-[200%]',
+              'rounded-md bg-white shadow-lg ring-1 ring-off-white',
+              '-translate-x-1/2 overflow-auto tracking-wide',
+              'component-scrollbar',
+              'sm:w-[150%]'
+            )}
+            onKeyDown={(e) => {
+              if (e.key === 'Escape') setIsOpen(false);
+            }}
           >
             {options.map((opt) => {
               const optValue = getValue(opt);
@@ -84,9 +96,11 @@ export default function FilterDropdown({ label, options = [], value, onChange, c
               return (
                 <li
                   key={optValue}
-                  onClick={() => handleSelect(opt)}
+                  id={optValue}
                   role="option"
                   aria-selected={isActive}
+                  tabIndex={-1}
+                  onClick={() => handleSelect(opt)}
                   className={clsx(
                     'm-1 flex cursor-pointer items-center justify-between',
                     'rounded-sm px-3 py-2 text-black hover:bg-off-white',

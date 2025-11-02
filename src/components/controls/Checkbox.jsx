@@ -14,7 +14,7 @@ export default function Checkbox({ checked, onChange, label }) {
       />
 
       <div
-        className="flex h-4 w-4 items-center justify-center rounded-full border border-black transition-all duration-300 ease-out hover:scale-105 peer-checked:bg-black md:h-6 md:w-6 md:border-2 peer-checked:[&>svg]:opacity-100"
+        className="flex h-4 w-4 items-center justify-center rounded-full border border-black transition-opacity duration-300 ease-out hover:opacity-80 peer-checked:bg-black md:h-6 md:w-6 md:border-2 peer-checked:[&>svg]:opacity-100"
         aria-hidden="true"
       >
         <CheckIcon className="opacity-0 transition-opacity" />
