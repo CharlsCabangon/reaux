@@ -1,10 +1,11 @@
+import React, { memo } from 'react';
 import { useInView } from 'react-intersection-observer';
 import { AnimatePresence } from 'framer-motion';
 
 import NavBar from './NavBar';
 import NavBarSticky from './NavBarSticky';
 
-export default function Header() {
+function Header() {
   const [ref, inView] = useInView({ threshold: 0 });
 
   return (
@@ -14,3 +15,5 @@ export default function Header() {
     </header>
   );
 }
+
+export default memo(Header);

@@ -1,15 +1,16 @@
+import React, { useCallback, memo } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import { useCart } from '@/context/useCart';
 import CartIcon from '@/assets/icons/CartIcon';
 
-export default function ButtonCart() {
+function ButtonCart() {
   const { totalItems } = useCart();
   const navigate = useNavigate();
 
-  const handleCartSelect = () => {
+  const handleCartSelect = useCallback(() => {
     navigate('/cart');
-  };
+  }, [navigate]);
 
   return (
     <button
@@ -26,3 +27,5 @@ export default function ButtonCart() {
     </button>
   );
 }
+
+export default memo(ButtonCart);

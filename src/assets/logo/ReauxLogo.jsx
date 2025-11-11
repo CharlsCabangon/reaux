@@ -1,8 +1,8 @@
+import React, { memo } from 'react';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
-import Tilt from 'react-parallax-tilt';
 
-export default function ReauxLogo({ color = 'black', size = 'base', hasHover = false }) {
+function ReauxLogo({ color = 'black', size = 'base', hasHover = false }) {
   const colorClasses = {
     black: 'text-black',
     white: 'text-white',
@@ -35,3 +35,5 @@ ReauxLogo.propTypes = {
   size: PropTypes.oneOf(['small', 'base', 'large']),
   hasHover: PropTypes.bool,
 };
+
+export default memo(ReauxLogo);

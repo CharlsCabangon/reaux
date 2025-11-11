@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, useCallback, memo } from 'react';
 import PropTypes from 'prop-types';
 
 import { AnimatePresence, motion } from 'framer-motion';
@@ -8,7 +8,7 @@ import clsx from 'clsx';
 import { ChevronDownIcon } from '@heroicons/react/20/solid';
 import CheckIcon from '@/assets/icons/CheckIcon';
 
-export default function FilterDropdown({ label, options = [], value, onChange, capitalizeText }) {
+function FilterDropdown({ label, options = [], value, onChange, capitalizeText }) {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef(null);
 
@@ -22,21 +22,31 @@ export default function FilterDropdown({ label, options = [], value, onChange, c
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
-  const getLabel = (opt) => {
-    if (typeof opt === 'string') {
-      if (opt === 'all') return `All ${label.split(' ')[2] || label}`;
-      return capitalizeText ? capitalizeText(opt) : opt;
-    }
-    return opt.label;
-  };
+  const getLabel = useCallback(
+    (opt) => {
+      if (typeof opt === 'string') {
+        if (opt === 'all') return `All ${label.split(' ')[2] || label}`;
+        return capitalizeText ? capitalizeText(opt) : opt;
+      }
+      return opt.label;
+    },
+    [label, capitalizeText]
+  );
 
-  const getValue = (opt) => (typeof opt === 'string' ? opt : opt.value);
+  const getValue = useCallback((opt) => (typeof opt === 'string' ? opt : opt.value), []);
 
-  const handleSelect = (opt) => {
-    const event = { target: { value: getValue(opt) } };
-    onChange(event);
-    setIsOpen(false);
-  };
+  const handleSelect = useCallback(
+    (opt) => {
+      const event = { target: { value: getValue(opt) } };
+      onChange(event);
+      setIsOpen(false);
+    },
+    [getValue, onChange]
+  );
+
+  const toggleDropdown = useCallback(() => {
+    setIsOpen((prev) => !prev);
+  }, []);
 
   return (
     <label
@@ -61,7 +71,7 @@ export default function FilterDropdown({ label, options = [], value, onChange, c
 
       <button
         type="button"
-        onClick={() => setIsOpen((prev) => !prev)}
+        onClick={toggleDropdown}
         aria-label={`${label} filter`}
         aria-expanded={isOpen}
         className="flex items-center text-left text-xs font-light tracking-wide text-black-muted sm:text-sm"
@@ -133,3 +143,5 @@ FilterDropdown.propTypes = {
   onChange: PropTypes.func.isRequired,
   capitalizeText: PropTypes.func,
 };
+
+export default memo(FilterDropdown);

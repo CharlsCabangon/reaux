@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState, useCallback, memo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
@@ -6,21 +6,21 @@ import clsx from 'clsx';
 
 import { truncateText } from '@/utils/truncateText';
 
-export default function ProductCard({ item }) {
+function ProductCard({ item }) {
   const [isHover, setHover] = useState(false);
   const navigate = useNavigate();
 
-  const handleMouseEnter = () => {
+  const handleMouseEnter = useCallback(() => {
     setHover(true);
-  };
+  }, []);
 
-  const handleMouseLeave = () => {
+  const handleMouseLeave = useCallback(() => {
     setHover(false);
-  };
+  }, []);
 
-  const handleProductSelect = () => {
+  const handleProductSelect = useCallback(() => {
     navigate(`/product/${item.id}`);
-  };
+  }, [navigate, item.id]);
 
   return (
     <article
@@ -88,3 +88,5 @@ ProductCard.propTypes = {
     }).isRequired,
   }).isRequired,
 };
+
+export default memo(ProductCard);
