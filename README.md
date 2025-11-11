@@ -10,15 +10,23 @@ Reaux is a frontend e-commerce project built for [The Odin Project](https://www.
 
 ---
 
+### Display
+
+![](public/assets/images/display.avif)
+
+---
+
 ### Built with
 
 ##### Core Technologies
+
 - [Vite](https://vitejs.dev/) + [React](https://react.dev/)
 - [React Router](https://reactrouter.com/)
 - [Tailwind CSS](https://tailwindcss.com/)
 - [Framer Motion](https://www.framer.com/motion/)
 
 ##### React Ecosystem
+
 - [react-flickity-component](https://www.npmjs.com/package/react-flickity-component)
 - [react-intersection-observer](https://www.npmjs.com/package/react-intersection-observer)
 - [react-fast-marquee](https://www.npmjs.com/package/react-fast-marquee)
@@ -30,20 +38,15 @@ Reaux is a frontend e-commerce project built for [The Odin Project](https://www.
 
 ### Features
 
-- **Cart Management**
-A fully functional shopping cart powered by React Context and useReducer. Add, remove, adjust quantities, and watch your selections persist across sessions, all with the fluidity of a well-oiled checkout counter. Multi-select, bulk actions, and real-time totals included, because details matter.
+- **Cart Management** – A fully functional shopping cart powered by React Context and useReducer. Add, remove, adjust quantities, and watch your selections persist across sessions, all with the fluidity of a well-oiled checkout counter. Multi-select, bulk actions, and real-time totals included, because details matter.
 
-- **Product Filtering**
-Intelligent filters that adapt to your collection. Sort by price, category, or collection with dropdowns that feel native and responsive. Real-time updates, zero page reloads, and a UX that doesn't make you think twice.
+- **Product Filtering** – Intelligent filters that adapt to your collection. Sort by price, category, or collection with dropdowns that feel native and responsive. Real-time updates, zero page reloads, and a UX that doesn't make you think twice.
 
-- **Responsive Art Direction**
-Different images for different viewports; not just scaled, but composed. Mobile gets portrait, tablet gets landscape, desktop gets cinematic. Using native `<picture>` elements and media queries, each breakpoint serves the perfect crop. Because a hero image should always look heroic.
+- **Responsive Art Direction** – Different images for different viewports; not just scaled, but composed. Mobile gets portrait, tablet gets landscape, desktop gets cinematic. Using native `<picture>` elements and media queries, each breakpoint serves the perfect crop. Because a hero image should always look heroic.
 
-- **Adaptive Navigation**
-Sticky headers that know when to step aside, collapsible mobile menus with smooth transitions, and a button that shines on hover (literally). Navigation that stays out of your way until you need it, then appears with purpose.
+- **Adaptive Navigation** – Sticky headers that know when to step aside, collapsible mobile menus with smooth transitions, and a button that shines on hover (literally). Navigation that stays out of your way until you need it, then appears with purpose.
 
-- **Accessibility First**
-Semantic HTML, ARIA labels, keyboard navigation, and focus management throughout. Screen reader friendly, tab-order logical, and contrast ratios that pass WCAG AA. Luxury should be inclusive.
+- **Accessibility First** – Semantic HTML, ARIA labels, keyboard navigation, and focus management throughout. Screen reader friendly, tab-order logical, and contrast ratios that pass WCAG AA. Luxury should be inclusive.
 
 ---
 

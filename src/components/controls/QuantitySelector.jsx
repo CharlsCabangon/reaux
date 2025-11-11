@@ -1,12 +1,12 @@
-import React from 'react';
+import React, { useCallback, memo } from 'react';
 import PropTypes from 'prop-types';
 
-export default function QuantitySelector({ value = 1, onChange }) {
+function QuantitySelector({ value = 1, onChange }) {
   const MIN = 1;
   const MAX = 10;
 
-  const increment = () => onChange(Math.min(MAX, value + 1));
-  const decrement = () => onChange(Math.max(MIN, value - 1));
+  const increment = useCallback(() => onChange(Math.min(MAX, value + 1)), [onChange, value]);
+  const decrement = useCallback(() => onChange(Math.max(MIN, value - 1)), [onChange, value]);
 
   const handleInputChange = (e) => {
     const newValue = e.target.value;
@@ -53,3 +53,5 @@ QuantitySelector.propTypes = {
   value: PropTypes.number,
   onChange: PropTypes.func.isRequired,
 };
+
+export default memo(QuantitySelector);

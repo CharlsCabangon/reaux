@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import { useState } from 'react';
+import React, { useState, useCallback, memo } from 'react';
 import { NavLink } from 'react-router-dom';
 
 import { AnimatePresence, motion } from 'framer-motion';
@@ -11,17 +11,28 @@ import SearchIcon from '@/assets/icons/SearchIcon';
 import ButtonCart from './controls/ButtonCart';
 import ButtonMenu from './controls/ButtonMenu';
 
-export default function NavBar() {
+function NavBar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const navLinkClasses = ({ isActive }) =>
-    clsx(
-      'relative cursor-pointer font-sourceSerif text-sm sm:text-base text-black no-underline',
-      'after:absolute after:bottom-[-3px] after:left-0 after:h-[0.1rem] after:bg-black/75',
-      'after:opacity-0 after:transition-all after:duration-200',
-      'hover:after:w-full hover:after:opacity-100',
-      isActive && 'after:w-full after:opacity-100'
-    );
+  const toggleMenu = useCallback(() => {
+    setIsMenuOpen((v) => !v);
+  }, []);
+
+  const closeMenu = useCallback(() => {
+    setIsMenuOpen(false);
+  }, []);
+
+  const navLinkClasses = useCallback(
+    ({ isActive }) =>
+      clsx(
+        'relative cursor-pointer font-sourceSerif text-sm sm:text-base text-black no-underline',
+        'after:absolute after:bottom-[-3px] after:left-0 after:h-[0.1rem] after:bg-black/75',
+        'after:opacity-0 after:transition-all after:duration-200',
+        'hover:after:w-full hover:after:opacity-100',
+        isActive && 'after:w-full after:opacity-100'
+      ),
+    []
+  );
 
   return (
     <motion.header
@@ -47,7 +58,7 @@ export default function NavBar() {
             </div>
             <ButtonCart />
             <div className="lg:hidden">
-              <ButtonMenu onClick={() => setIsMenuOpen(!isMenuOpen)} isOpen={isMenuOpen} />
+              <ButtonMenu onClick={toggleMenu} isOpen={isMenuOpen} />
             </div>
           </div>
         </div>
@@ -86,25 +97,17 @@ export default function NavBar() {
             >
               <ul className="flex flex-col gap-4 text-center">
                 <li>
-                  <NavLink to="/" className={navLinkClasses} onClick={() => setIsMenuOpen(false)}>
+                  <NavLink to="/" className={navLinkClasses} onClick={closeMenu}>
                     Home
                   </NavLink>
                 </li>
                 <li>
-                  <NavLink
-                    to="/shop"
-                    className={navLinkClasses}
-                    onClick={() => setIsMenuOpen(false)}
-                  >
+                  <NavLink to="/shop" className={navLinkClasses} onClick={closeMenu}>
                     Shop
                   </NavLink>
                 </li>
                 <li>
-                  <NavLink
-                    to="/about"
-                    className={navLinkClasses}
-                    onClick={() => setIsMenuOpen(false)}
-                  >
+                  <NavLink to="/about" className={navLinkClasses} onClick={closeMenu}>
                     About Us
                   </NavLink>
                 </li>
@@ -116,3 +119,5 @@ export default function NavBar() {
     </motion.header>
   );
 }
+
+export default memo(NavBar);

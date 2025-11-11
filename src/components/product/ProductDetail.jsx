@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo, memo } from 'react';
 import PropTypes from 'prop-types';
 
 import clsx from 'clsx';
@@ -6,11 +6,11 @@ import clsx from 'clsx';
 import ButtonAddToCart from '../controls/ButtonAddToCart';
 import QuantitySelector from '../controls/QuantitySelector';
 
-export default function ProductDetail({ product }) {
+function ProductDetail({ product }) {
   const [quantity, setQuantity] = useState(1);
   const [selectedImage, setSelectedImage] = useState(product.images.main);
 
-  const allImages = Object.values(product.images).filter(Boolean);
+  const allImages = useMemo(() => Object.values(product.images).filter(Boolean), [product.images]);
 
   useEffect(() => {
     setSelectedImage(product.images.main);
@@ -107,3 +107,5 @@ ProductDetail.propTypes = {
     }).isRequired,
   }).isRequired,
 };
+
+export default memo(ProductDetail);

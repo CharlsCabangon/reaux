@@ -1,13 +1,14 @@
+import React, { useCallback, memo } from 'react';
 import PropTypes from 'prop-types';
 
 import { useCart } from '@/context/useCart';
 
-export default function ButtonAddToCart({ product, quantity = 1 }) {
+function ButtonAddToCart({ product, quantity = 1 }) {
   const { addToCart } = useCart();
 
-  const handleAdd = () => {
+  const handleAdd = useCallback(() => {
     addToCart(product, Number(quantity));
-  };
+  }, [addToCart, product, quantity]);
 
   return (
     <button
@@ -37,3 +38,5 @@ ButtonAddToCart.propTypes = {
   }).isRequired,
   quantity: PropTypes.number,
 };
+
+export default memo(ButtonAddToCart);

@@ -1,21 +1,15 @@
-import { useState, useEffect } from 'react';
+import { useMemo } from 'react';
 import { applyCategoryFilter, applyCollectionFilter } from '@/services/filterService';
 import { applySort } from '@/services/sortService';
 
 export default function useFilteredProducts(products = [], filters = {}) {
-  const [filtered, setFiltered] = useState(products);
+  const { category, collection, sort } = filters;
 
-  useEffect(() => {
-    const { category, collection, sort } = filters;
-
+  return useMemo(() => {
     let list = products;
-    // chaining filters
     list = applyCategoryFilter(list, category);
     list = applyCollectionFilter(list, collection);
     list = applySort(list, sort);
-
-    setFiltered(list);
-  }, [products, filters]);
-
-  return filtered;
+    return list;
+  }, [products, category, collection, sort]);
 }

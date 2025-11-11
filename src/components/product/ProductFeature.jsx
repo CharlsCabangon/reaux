@@ -34,10 +34,7 @@ export default function ProductFeature({ count = 5 }) {
   if (products.length === 0) return null;
 
   return (
-    <section
-      className="w-full overflow-hidden py-5 sm:py-6 md:py-8"
-      aria-label="Featured products"
-    >
+    <section className="w-full overflow-hidden py-5 sm:py-6 md:py-8" aria-label="Featured products">
       <FlickityComponent
         className="carousel"
         elementType="div"
